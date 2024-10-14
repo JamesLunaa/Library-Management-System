@@ -1,0 +1,125 @@
+.card-header {
+    background-color: maroon;
+}
+
+/* requestStatus */
+.reqHeight {
+    min-height: 50vh;
+    max-height: 50vh;
+    min-width: 100vh;
+    overflow-y: auto;
+}
+
+/* section */
+.recHeight {
+    min-height: 50vh;
+    max-height: 50vh;
+    min-width: 100vh;
+    overflow-y: auto;
+}
+/* borrowBook */
+.formBBookHeight {
+    min-height: 50vh;
+    max-height: 50vh;
+    min-width: 100vh;
+}
+
+/* searchBook */
+.bookList {
+    min-height: 100vh;
+    max-height: 100vh;
+    overflow-y: auto;
+    /* background-color: #92DFE70D; */
+}
+
+/* feedbacks */
+.feedHeight {
+    min-height: 50vh;
+    max-height: 50vh;
+    min-width: 100vh;
+    overflow-y: auto;
+}
+
+/* main preset */
+.card-header {
+    background-color: maroon;
+}
+.card-body {
+    background-color: maroon;
+}
+.contBody {
+    background-color: maroon;
+}
+.mainCont {
+    background-color: maroon;
+}
+body {
+    background-color: maroon;
+}
+
+.mainDisplay {
+    background-color: #f0f0fb;
+}
+.list {
+    margin-left: 5rem;
+    margin-right: 5rem;
+    margin-bottom: 5rem;
+    background-color: white;
+}
+.ind {
+    background-color: #fbfbfe;
+}
+
+.nav-link.active {
+    background-color: gold !important; /* Change this to the desired color */
+    color: black !important; /* Optional: change text color */
+}
+.nav-link:hover {
+    background-color: gold;
+    color: black !important;
+}
+.cardBorder {
+    border: none !important;
+}
+.card-footer {
+    border-top: none;
+}
+.menuHead {
+    border-bottom: none !important;
+}
+
+/* sample color close to red */
+.Salmon {
+    color: #FA8072;
+}
+
+/* sample color close to green */
+.MediumSpringGreen {
+    color: #00FA9A;
+}
+
+
+.btn-success {
+    background-color:#00FA9A !important;
+    border: none !important;
+    color: #006400;
+}
+.btn-success:hover {
+    color: black;
+}
+.btn-danger {
+    background-color: #ec5847 !important;
+    border: none !important;
+}
+.btn-danger:hover {
+    color: black;
+}
+.btn-warning {
+    color: black !important;
+}
+textarea {
+    min-height: 40vh !important; /* Adjust the value as needed */
+    max-height: 50vh;
+    overflow-y: auto;
+}
+
