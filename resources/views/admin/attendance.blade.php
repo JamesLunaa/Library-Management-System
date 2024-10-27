@@ -55,28 +55,29 @@
 
                     <section class="userList mt-5">
                         <div class="recHeight">
+
+                            <table class="table table-dark">
+                                <thead class="text-center">
+                                    <tr>
+                                        <th scope="col">Name</th>
+                                        <th scope="col">Library ID</th>
+                                        <th scope="col">Date</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="text-center">
+                                    @foreach ($attendanceList as $attendance)
+                                        <tr>
+
+                                            <td>{{ $attendance->name }}</td>
+                                            <td>{{ $attendance->libraryId }}</td>
+                                            <td>{{ $attendance->date }}</td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
                             @if ($attendanceList->isEmpty())
                                 <div class="text-center fs-4 text-danger"><strong>Empty!</strong></div>
                             @else
-                                <table class="table table-dark">
-                                    <thead class="text-center">
-                                        <tr>
-                                            <th scope="col">Name</th>
-                                            <th scope="col">Library ID</th>
-                                            <th scope="col">Date</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody class="text-center">
-                                        @foreach ($attendanceList as $attendance)
-                                            <tr>
-
-                                                <td>{{ $attendance->name }}</td>
-                                                <td>{{ $attendance->libraryId }}</td>
-                                                <td>{{ $attendance->date }}</td>
-                                            </tr>
-                                        @endforeach
-                                    </tbody>
-                                </table>
                             @endif
                         </div>
                     </section>

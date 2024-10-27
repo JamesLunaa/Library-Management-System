@@ -49,39 +49,40 @@
 
                     <section class="userList mt-4">
                         <div class="recHeight">
+
+                            <table class="table table-dark">
+                                <thead class="text-center">
+                                    <tr>
+                                        <th scope="col">Name</th>
+                                        <th scope="col">Library ID</th>
+                                        <th scope="col">Title</th>
+                                        <th scope="col">Acc No.</th>
+                                        <th scope="col">Request Date</th>
+                                        <th scope="col">Borrowed Date</th>
+                                        <th scope="col">Returned Date</th>
+                                        <th scope="col">Status</th>
+                                        <th scope="col">Remarks</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="text-center">
+                                    @foreach ($recordsList as $record)
+                                        <tr>
+                                            <td>{{ $record->name }}</td>
+                                            <td>{{ $record->libraryId }}</td>
+                                            <td>{{ $record->title }}</td>
+                                            <td>{{ $record->accNo }}</td>
+                                            <td>{{ $record->date }}</td>
+                                            <td>{{ $record->borrowedDate }}</td>
+                                            <td>{{ $record->return_date }}</td>
+                                            <td>{{ $record->status }}</td>
+                                            <td>{{ $record->remarks }}</td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
                             @if ($recordsList->isEmpty())
                                 <div class="text-center fs-4 text-danger"><strong>Empty!</strong></div>
                             @else
-                                <table class="table table-dark">
-                                    <thead class="text-center">
-                                        <tr>
-                                            <th scope="col">Name</th>
-                                            <th scope="col">Library ID</th>
-                                            <th scope="col">Title</th>
-                                            <th scope="col">Acc No.</th>
-                                            <th scope="col">Request Date</th>
-                                            <th scope="col">Borrowed Date</th>
-                                            <th scope="col">Returned Date</th>
-                                            <th scope="col">Status</th>
-                                            <th scope="col">Remarks</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody class="text-center">
-                                        @foreach ($recordsList as $record)
-                                            <tr>
-                                                <td>{{ $record->name }}</td>
-                                                <td>{{ $record->libraryId }}</td>
-                                                <td>{{ $record->title }}</td>
-                                                <td>{{ $record->accNo }}</td>
-                                                <td>{{ $record->date }}</td>
-                                                <td>{{ $record->borrowedDate }}</td>
-                                                <td>{{ $record->return_date }}</td>
-                                                <td>{{ $record->status }}</td>
-                                                <td>{{ $record->remarks }}</td>
-                                            </tr>
-                                        @endforeach
-                                    </tbody>
-                                </table>
                             @endif
                         </div>
                     </section>

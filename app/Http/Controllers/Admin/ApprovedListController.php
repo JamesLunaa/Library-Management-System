@@ -51,6 +51,11 @@ class ApprovedListController extends Controller
                           ->from('borrowedbooks')
                           ->where('form', 'Claimed');
                 })
+                ->whereNotIn('accNo', function ($query) {
+                    $query->select('accNo')
+                          ->from('books')
+                          ->where('status', 'Unavailable');
+                })
                 ->orderBy('id', 'ASC')
                 ->get();
         }

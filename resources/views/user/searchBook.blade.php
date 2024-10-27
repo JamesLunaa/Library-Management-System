@@ -75,44 +75,44 @@
                             }, 4000); // 5000ms = 5 seconds
                         </script>
 
-                        @if ($list->isEmpty())
-                            <div class="text-center fs-4 text-danger"><strong>Empty!</strong></div>
-                        @else
-                            <div
-                                class="d-flex flex-wrap justify-content-center border-start rounded-3 p-4 gap-5 bookList">
-                                @foreach ($list as $books)
-                                    @php
-                                        // Determine the status color based on book_status
-                                        $statusColor =
-                                            $books->status == 'Available' ? 'color: #00FA9A;' : 'color: gold;';
 
-                                        // Determine if the buttons should be disabled based on conditions
-                                        $unavailableDisabled = $books->status == 'Unavailable' ? 'disabled' : '';
-                                    @endphp
+                        <div class="d-flex flex-wrap justify-content-center border-start rounded-3 p-4 gap-5 bookList">
+                            @foreach ($list as $books)
+                                @php
+                                    // Determine the status color based on book_status
+                                    $statusColor = $books->status == 'Available' ? 'color: #00FA9A;' : 'color: gold;';
 
-                                    <div class='col-12 col-sm-6 col-md-4 col-lg-3'>
-                                        <div class='card ind text-center'>
-                                            <img src='/icons/borrowedBook.png' class='card-img-top' alt='...'
-                                                style='height: 13rem; width: auto;'>
-                                            <div class='card-body text-white'>
-                                                <h5 class='card-title fw-bold fs-4'>{{ $books->title }}</h5><br>
-                                                <h5 class='card-title'>Acc No. {{ $books->accNo }}</h5><br>
-                                                <h5 class="card-title" style="{{ $statusColor }}">
-                                                    {{ $books->status }}</h5>
+                                    // Determine if the buttons should be disabled based on conditions
+                                    $unavailableDisabled = $books->status == 'Unavailable' ? 'disabled' : '';
+                                @endphp
 
-                                                <!-- Buttons to change status -->
-                                                <form method="POST" action="{{ route('borrow') }}">
-                                                    @csrf
-                                                    <input type="hidden" name="accNo" value="{{ $books->accNo }}">
-                                                    <button type="submit" name="borrow" class="btn btn-success"
-                                                        {{ $unavailableDisabled }}>Check Info</button>
-                                                </form>
-                                            </div>
+                                <div class='col-12 col-sm-6 col-md-4 col-lg-3'>
+                                    <div class='card ind text-center'>
+                                        <img src='/BookCovers/{{ $books->image_path }}' class='card-img-top'
+                                            alt='Book cover for {{ $books->title }}' style='height: 13rem; width: auto;'
+                                            onerror="this.onerror=null;this.src='/icons/borrowedBook.png';">
+                                        <div class='card-body text-white'>
+                                            <h5 class='card-title fw-bold fs-4'>{{ $books->title }}</h5><br>
+                                            <h5 class='card-title'>Acc No. {{ $books->accNo }}</h5><br>
+                                            <h5 class="card-title" style="{{ $statusColor }}">
+                                                {{ $books->status }}</h5>
+
+                                            <!-- Buttons to change status -->
+                                            <form method="POST" action="{{ route('borrow') }}">
+                                                @csrf
+                                                <input type="hidden" name="accNo" value="{{ $books->accNo }}">
+                                                <button type="submit" name="borrow" class="btn btn-success"
+                                                    {{ $unavailableDisabled }}>Check Info</button>
+                                            </form>
                                         </div>
                                     </div>
-                                @endforeach
-                            </div>
-                        @endif
+                                </div>
+                            @endforeach
+                            @if ($list->isEmpty())
+                                <div class="text-center fs-4 text-danger"><strong>Empty!</strong></div>
+                            @else
+                            @endif
+                        </div>
                     </div>
 
                 </div>

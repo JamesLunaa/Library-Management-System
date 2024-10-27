@@ -48,46 +48,46 @@
                                     </tr>
                                 </thead>
                                 <tbody class="text-center">
-                                    @if ($myRequest->isEmpty())
-                                        <div class="text-center fs-4 text-danger"><strong>Empty!</strong></div>
-                                    @else
-                                        @foreach ($myRequest as $request)
-                                            @php
-                                                // Determine the status color based on book_status
-                                                if ($request->status == 'Pending') {
-                                                    $statusColor = 'color: yellow;';
-                                                    $disabled = '';
-                                                } elseif ($request->status == 'Approved') {
-                                                    $statusColor = 'color: #00FA9A;';
-                                                    $disabled = 'disabled'; // Disable the button if status is Approved
-                                                } else {
-                                                    $statusColor = 'color: gold;'; // Default color for any other status
-                                                    $disabled = '';
-                                                }
 
-                                            @endphp
-                                            <tr>
-                                                <td>{{ $request->date }}</td>
-                                                <td>{{ $request->title }}</td>
-                                                <td>{{ $request->accNo }}</td>
-                                                <td style="{{ $statusColor }}">{{ $request->status }}</td>
-                                                <td>
-                                                    <form action="{{ route('cancelUserRequest') }}" method="POST"
-                                                        onsubmit="return confirm('Are you sure you want to cancel the request?')">
-                                                        @csrf
-                                                        <input type="hidden" name="id"
-                                                            value="{{ $request->id }}">
-                                                        <button class="btn btn-danger" type="submit" name="cancel"
-                                                            value="{{ $request->accNo }}" {{ $disabled }}>
-                                                            Cancel
-                                                        </button>
-                                                    </form>
-                                                </td>
-                                            </tr>
-                                        @endforeach
-                                    @endif
+                                    @foreach ($myRequest as $request)
+                                        @php
+                                            // Determine the status color based on book_status
+                                            if ($request->status == 'Pending') {
+                                                $statusColor = 'color: yellow;';
+                                                $disabled = '';
+                                            } elseif ($request->status == 'Approved') {
+                                                $statusColor = 'color: #00FA9A;';
+                                                $disabled = 'disabled'; // Disable the button if status is Approved
+                                            } else {
+                                                $statusColor = 'color: gold;'; // Default color for any other status
+                                                $disabled = '';
+                                            }
+
+                                        @endphp
+                                        <tr>
+                                            <td>{{ $request->date }}</td>
+                                            <td>{{ $request->title }}</td>
+                                            <td>{{ $request->accNo }}</td>
+                                            <td style="{{ $statusColor }}">{{ $request->status }}</td>
+                                            <td>
+                                                <form action="{{ route('cancelUserRequest') }}" method="POST"
+                                                    onsubmit="return confirm('Are you sure you want to cancel the request?')">
+                                                    @csrf
+                                                    <input type="hidden" name="id" value="{{ $request->id }}">
+                                                    <button class="btn btn-danger" type="submit" name="cancel"
+                                                        value="{{ $request->accNo }}" {{ $disabled }}>
+                                                        Cancel
+                                                    </button>
+                                                </form>
+                                            </td>
+                                        </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
+                            @if ($myRequest->isEmpty())
+                                <div class="text-center fs-4 text-danger"><strong>Empty!</strong></div>
+                            @else
+                            @endif
 
                         </div>
                     </section>

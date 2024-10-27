@@ -53,48 +53,49 @@
 
                     <section class="userList mt-3">
                         <div class="vh-auto recHeight">
+
+                            <table class="table table-dark">
+                                <thead class="text-center">
+                                    <tr>
+                                        <th scope="col">Title</th>
+                                        <th scope="col">Acc No.</th>
+                                        <th scope="col">Status</th>
+                                        <th scope="col">Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="text-center">
+                                    @foreach ($remove as $removeItem)
+                                        <tr>
+                                            <td>{{ $removeItem->title }}</td>
+                                            <td>{{ $removeItem->accNo }}</td>
+                                            <td>
+                                                @if ($removeItem->status == 'Available')
+                                                    <span style="color: #00FA9A;">Ready to be removed</span>
+                                                    @php $disabled = ""; @endphp
+                                                @else
+                                                    <span style="color: #FA8072;">Borrowed</span>
+                                                    @php $disabled = "disabled"; @endphp
+                                                @endif
+                                            </td>
+                                            <td>
+                                                <div class="d-flex justify-content-center gap-2">
+                                                    <form action="{{ route('removeBooks') }}" method="POST"
+                                                        onsubmit="return confirm('Are you sure you want to delete this book?')">
+                                                        @csrf
+                                                        <button class="btn btn-danger" type="submit" name="lost"
+                                                            value="{{ $removeItem->accNo }}" {{ $disabled }}>
+                                                            Delete
+                                                        </button>
+                                                    </form>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
                             @if ($remove->isEmpty())
                                 <div class="text-center fs-4 text-danger"><strong>Empty!</strong></div>
                             @else
-                                <table class="table table-dark">
-                                    <thead class="text-center">
-                                        <tr>
-                                            <th scope="col">Title</th>
-                                            <th scope="col">Acc No.</th>
-                                            <th scope="col">Status</th>
-                                            <th scope="col">Action</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody class="text-center">
-                                        @foreach ($remove as $removeItem)
-                                            <tr>
-                                                <td>{{ $removeItem->title }}</td>
-                                                <td>{{ $removeItem->accNo }}</td>
-                                                <td>
-                                                    @if ($removeItem->status == 'Available')
-                                                        <span style="color: #00FA9A;">Ready to be removed</span>
-                                                        @php $disabled = ""; @endphp
-                                                    @else
-                                                        <span style="color: #FA8072;">Borrowed</span>
-                                                        @php $disabled = "disabled"; @endphp
-                                                    @endif
-                                                </td>
-                                                <td>
-                                                    <div class="d-flex justify-content-center gap-2">
-                                                        <form action="{{ route('removeBooks') }}" method="POST"
-                                                            onsubmit="return confirm('Are you sure you want to delete this book?')">
-                                                            @csrf
-                                                            <button class="btn btn-danger" type="submit" name="lost"
-                                                                value="{{ $removeItem->accNo }}" {{ $disabled }}>
-                                                                Delete
-                                                            </button>
-                                                        </form>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                        @endforeach
-                                    </tbody>
-                                </table>
                             @endif
                         </div>
                     </section>

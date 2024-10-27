@@ -30,6 +30,7 @@
                     <div class="text-center mt-4 mx-4">
                         <div class="d-flex gap-2">
                             <form action="{{ route('userRecords') }}" class="flex-fill d-flex gap-2" method="post">
+                                @csrf
                                 <div class="input-group input-group-lg mb-3">
                                     <input name="info" type="number" class="form-control shadow-sm"
                                         aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg"
@@ -63,25 +64,26 @@
                                     </tr>
                                 </thead>
                                 <tbody class="text-center">
-                                    @if ($recordList->isEmpty())
-                                        <div class="text-center fs-4 text-danger"><strong>Empty!</strong></div>
-                                    @else
-                                        @foreach ($recordList as $userRecord)
-                                            <tr>
-                                                <td>{{ $userRecord->name }}</td>
-                                                <td>{{ $userRecord->libraryId }}</td>
-                                                <td>{{ $userRecord->title }}</td>
-                                                <td>{{ $userRecord->accNo }}</td>
-                                                <td>{{ $userRecord->date }}</td>
-                                                <td>{{ $userRecord->borrowedDate }}</td>
-                                                <td>{{ $userRecord->return_date }}</td>
-                                                <td>{{ $userRecord->status }}</td>
-                                                <td>{{ $userRecord->remarks }}</td>
-                                            </tr>
-                                        @endforeach
-                                    @endif
+
+                                    @foreach ($recordList as $userRecord)
+                                        <tr>
+                                            <td>{{ $userRecord->name }}</td>
+                                            <td>{{ $userRecord->libraryId }}</td>
+                                            <td>{{ $userRecord->title }}</td>
+                                            <td>{{ $userRecord->accNo }}</td>
+                                            <td>{{ $userRecord->date }}</td>
+                                            <td>{{ $userRecord->borrowedDate }}</td>
+                                            <td>{{ $userRecord->return_date }}</td>
+                                            <td>{{ $userRecord->status }}</td>
+                                            <td>{{ $userRecord->remarks }}</td>
+                                        </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
+                            @if ($recordList->isEmpty())
+                                <div class="text-center fs-4 text-danger"><strong>Empty!</strong></div>
+                            @else
+                            @endif
                         </div>
                     </section>
 

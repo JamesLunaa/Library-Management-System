@@ -50,41 +50,52 @@
                         <a href="{{ route('admin.addUser') }}"><button type="submit"
                                 class="btn btn-danger btn-lg">Return</button></a>
                     </div>
-                    @if ($remove->isEmpty())
-                        <div class="text-center fs-4 text-danger"><strong>Empty!</strong></div>
-                    @else
-                        <section class="userList mt-3">
-                            <div class="vh-auto recHeight">
-                                <table class="table table-dark">
-                                    <thead class="text-center">
+
+                    <section class="userList mt-3">
+                        <div class="vh-auto recHeight">
+                            <table class="table table-dark">
+                                <thead class="text-center">
+                                    <tr>
+                                        <th scope="col">Name</th>
+                                        <th scope="col">Library I.D</th>
+                                        <th scope="col">User Status</th>
+                                        <th scope="col">Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="text-center">
+                                    @foreach ($remove as $users)
                                         <tr>
-                                            <th scope="col">Name</th>
-                                            <th scope="col">Library I.D</th>
-                                            <th scope="col">Action</th>
+                                            <td>{{ $users->name }}</td>
+                                            <td>{{ $users->libraryId }}</td>
+                                            <td>
+                                                @if ($users->form == 'Claimed')
+                                                    <span style="color: #FA8072;">Still has a borrowed book!</span>
+                                                    @php $disabled = "disabled"; @endphp
+                                                @else
+                                                    <span style="color: #00FA9A;">Ready to be removed</span>
+                                                    @php $disabled = ""; @endphp
+                                                @endif
+                                            </td>
+                                            <td>
+                                                <form action="{{ route('userDelete') }}" method="POST"
+                                                    onsubmit="return confirm('Are you sure you want to delete this book?')">
+                                                    @csrf
+                                                    <button class="btn btn-danger" type="submit" name="delete"
+                                                        value="{{ $users->libraryId }}" {{ $disabled }}>
+                                                        Delete
+                                                    </button>
+                                                </form>
+                                            </td>
                                         </tr>
-                                    </thead>
-                                    <tbody class="text-center">
-                                        @foreach ($remove as $users)
-                                            <tr>
-                                                <td>{{ $users->name }}</td>
-                                                <td>{{ $users->libraryId }}</td>
-                                                <td>
-                                                    <form action="{{ route('userDelete') }}" method="POST"
-                                                        onsubmit="return confirm('Are you sure you want to delete this book?')">
-                                                        @csrf
-                                                        <button class="btn btn-danger" type="submit" name="delete"
-                                                            value="{{ $users->libraryId }}">
-                                                            Delete
-                                                        </button>
-                                                    </form>
-                                                </td>
-                                            </tr>
-                                        @endforeach
-                                    </tbody>
-                                </table>
-                            </div>
-                        </section>
-                    @endif
+                                    @endforeach
+                                </tbody>
+                            </table>
+                            @if ($remove->isEmpty())
+                                <div class="text-center fs-4 text-danger"><strong>Empty!</strong></div>
+                            @else
+                            @endif
+                        </div>
+                    </section>
                 </div>
             </div>
         </div>

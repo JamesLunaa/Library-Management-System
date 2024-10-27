@@ -14,16 +14,21 @@ class RemoveUserController extends Controller
         if($request->has('search') && $request->filled('libId')) {
             $libId = $request->input('libId');
 
-            $userList = DB::table('users')
-            ->select('name', 'libraryId')
-            ->where('libraryId', $libId)
-            ->where('accLevel', 'user')
+            $userList = DB::table('users as b')
+            ->leftJoin('borrowedbooks as bb', 'b.libraryId', '=', 'bb.libraryId')
+            ->select('b.name', 'b.libraryId', 'bb.form')
+            ->where('b.libraryId', $libId)
+            ->where('b.accLevel', 'user')
             ->get();
+
         }else {
-            $userList = DB::table('users')
-            ->select('name', 'libraryId')
-            ->where('accLevel', 'user')
+            $userList = DB::table('users as b')
+            ->leftJoin('borrowedbooks as bb', 'b.libraryId', '=', 'bb.libraryId')
+            ->select('b.name', 'b.libraryId', 'bb.form')
+            ->where('b.accLevel', 'user')
             ->get();
+
+            
         }
         return view('admin.removeUser', ['remove' => $userList]);
     }

@@ -52,58 +52,58 @@
                                         class="mb-3 btn btn-danger text-white btn-lg" type="submit">Return</button></a>
                             </div>
 
+
+                            <table class="table table-dark text-center">
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Library ID</th>
+                                        <th>Title</th>
+                                        <th>Acc No</th>
+                                        <th>Date</th>
+                                        <th>Status</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach ($approved as $approve)
+                                        <tr>
+                                            <td>{{ $approve->name }}</td>
+                                            <td>{{ $approve->libraryId }}</td>
+                                            <td>{{ $approve->title }}</td>
+                                            <td>{{ $approve->accNo }}</td>
+                                            <td>{{ $approve->date }}</td>
+                                            <td>
+                                                <button class='btn btn-success' disabled>Approved</button>
+                                            </td>
+                                            <td>
+                                                <div class="d-flex justify-content-center gap-2">
+                                                    <form action="{{ route('markClaimed') }}" method="post"
+                                                        onsubmit="return confirm('Are you sure you want to mark as claimed?')">
+                                                        @csrf
+                                                        <input type="hidden" name="id"
+                                                            value="{{ $approve->id }}">
+                                                        <button class="btn btn-success" type="submit" name="claimed"
+                                                            value="{{ $approve->accNo }}">Claimed</button>
+                                                    </form>
+
+                                                    <form action="{{ route('cancelRequest') }}" method="post"
+                                                        onsubmit="return confirm('Are you sure you want to cancel?')">
+                                                        @csrf
+                                                        <input type="hidden" name="id"
+                                                            value="{{ $approve->id }}">
+                                                        <button class="btn btn-danger" type="submit" name="cancel"
+                                                            value="{{ $approve->accNo }}">Cancelled</button>
+                                                    </form>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
                             @if ($approved->isEmpty())
                                 <div class="text-center fs-4 text-danger"><strong>Empty!</strong></div>
                             @else
-                                <table class="table table-dark text-center">
-                                    <thead>
-                                        <tr>
-                                            <th>Name</th>
-                                            <th>Library ID</th>
-                                            <th>Title</th>
-                                            <th>Acc No</th>
-                                            <th>Date</th>
-                                            <th>Status</th>
-                                            <th>Actions</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        @foreach ($approved as $approve)
-                                            <tr>
-                                                <td>{{ $approve->name }}</td>
-                                                <td>{{ $approve->libraryId }}</td>
-                                                <td>{{ $approve->title }}</td>
-                                                <td>{{ $approve->accNo }}</td>
-                                                <td>{{ $approve->date }}</td>
-                                                <td>
-                                                    <button class='btn btn-success' disabled>Approved</button>
-                                                </td>
-                                                <td>
-                                                    <div class="d-flex justify-content-center gap-2">
-                                                        <form action="{{ route('markClaimed') }}" method="post"
-                                                            onsubmit="return confirm('Are you sure you want to mark as claimed?')">
-                                                            @csrf
-                                                            <input type="hidden" name="id"
-                                                                value="{{ $approve->id }}">
-                                                            <button class="btn btn-success" type="submit"
-                                                                name="claimed"
-                                                                value="{{ $approve->accNo }}">Claimed</button>
-                                                        </form>
-
-                                                        <form action="{{ route('cancelRequest') }}" method="post"
-                                                            onsubmit="return confirm('Are you sure you want to cancel?')">
-                                                            @csrf
-                                                            <input type="hidden" name="id"
-                                                                value="{{ $approve->id }}">
-                                                            <button class="btn btn-danger" type="submit" name="cancel"
-                                                                value="{{ $approve->accNo }}">Cancelled</button>
-                                                        </form>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                        @endforeach
-                                    </tbody>
-                                </table>
                             @endif
 
                         </div>

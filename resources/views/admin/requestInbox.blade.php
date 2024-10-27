@@ -49,58 +49,59 @@
                     <section class="mt-3">
                         <div class="vh-auto recHeight">
 
-                            @if ($requestList->isEmpty())
-                                <div class="text-center fs-4 text-danger"><strong>Empty!</strong></div>
-                            @else
-                                <table class="table table-dark">
-                                    <thead class="text-center">
+                            <table class="table table-dark">
+                                <thead class="text-center">
+                                    <tr>
+                                        <th scope="col">Name</th>
+                                        <th scope="col">Library ID</th>
+                                        <th scope="col">Title</th>
+                                        <th scope="col">Acc No.</th>
+                                        <th scope="col">Request Date</th>
+                                        <th scope="col">Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="text-center">
+                                    @foreach ($requestList as $requests)
                                         <tr>
-                                            <th scope="col">Name</th>
-                                            <th scope="col">Library ID</th>
-                                            <th scope="col">Title</th>
-                                            <th scope="col">Acc No.</th>
-                                            <th scope="col">Request Date</th>
-                                            <th scope="col">Action</th>
+                                            <td>{{ $requests->name }}</td>
+                                            <td>{{ $requests->libraryId }}</td>
+                                            <td>{{ $requests->title }}</td>
+                                            <td>{{ $requests->accNo }}</td>
+                                            <td>{{ $requests->date }}</td>
+                                            <td>
+                                                <div class="d-flex justify-content-center gap-2">
+                                                    <form action="{{ route('approveRequest') }}" method="post"
+                                                        onsubmit="return confirm('Are you sure you want to approve this request?')">
+                                                        @csrf
+                                                        <input type="hidden" name="id"
+                                                            value="{{ $requests->id }}">
+                                                        <button class="btn btn-success" type="submit" name="approve"
+                                                            value="{{ $requests->accNo }}">
+                                                            Approve
+                                                        </button>
+                                                    </form>
+
+                                                    <form action="{{ route('rejectRequest') }}" method="post"
+                                                        onsubmit="return confirm('Are you sure you want to reject this request?')">
+                                                        @csrf
+                                                        <input type="hidden" name="id"
+                                                            value="{{ $requests->id }}">
+                                                        <button class="btn btn-danger" type="submit" name="reject"
+                                                            value="{{ $requests->accNo }}">
+                                                            Reject
+                                                        </button>
+                                                    </form>
+                                                </div>
+                                            </td>
                                         </tr>
-                                    </thead>
-                                    <tbody class="text-center">
-                                        @foreach ($requestList as $requests)
-                                            <tr>
-                                                <td>{{ $requests->name }}</td>
-                                                <td>{{ $requests->libraryId }}</td>
-                                                <td>{{ $requests->title }}</td>
-                                                <td>{{ $requests->accNo }}</td>
-                                                <td>{{ $requests->date }}</td>
-                                                <td>
-                                                    <div class="d-flex justify-content-center gap-2">
-                                                        <form action="{{ route('approveRequest') }}" method="post"
-                                                            onsubmit="return confirm('Are you sure you want to approve this request?')">
-                                                            @csrf
-                                                            <input type="hidden" name="id"
-                                                                value="{{ $requests->id }}">
-                                                            <button class="btn btn-success" type="submit"
-                                                                name="approve" value="{{ $requests->accNo }}">
-                                                                Approve
-                                                            </button>
-                                                        </form>
-
-                                                        <form action="{{ route('rejectRequest') }}" method="post"
-                                                            onsubmit="return confirm('Are you sure you want to reject this request?')">
-                                                            @csrf
-                                                            <input type="hidden" name="id"
-                                                                value="{{ $requests->id }}">
-                                                            <button class="btn btn-danger" type="submit" name="reject"
-                                                                value="{{ $requests->accNo }}">
-                                                                Reject
-                                                            </button>
-                                                        </form>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                        @endforeach
-                                    </tbody>
-                                </table>
-
+                                    @endforeach
+                                </tbody>
+                            </table>
+                            @if ($requestList->isEmpty())
+                                <div class="text-center fs-4 text-danger">
+                                    <strong>Empty!</strong>
+                                </div>
+                            @else
                             @endif
 
                         </div>

@@ -45,22 +45,23 @@
                                     </tr>
                                 </thead>
                                 <tbody class="text-center">
-                                    @if ($userBorrowed->isEmpty())
-                                        <div class="text-center fs-4 text-danger"><strong>Empty!</strong></div>
-                                    @else
-                                        @foreach ($userBorrowed as $borrowedBooks)
-                                            <tr>
-                                                <td>{{ $borrowedBooks->title }}</td>
-                                                <td>{{ $borrowedBooks->accNo }}</td>
-                                                <td>{{ $borrowedBooks->date }}</td>
-                                                <td>{{ $borrowedBooks->borrowedDate }}</td>
-                                                <td>{{ $borrowedBooks->duration }} Day</td>
-                                                <td>{{ $borrowedBooks->delay }} Day/s</td>
-                                            </tr>
-                                        @endforeach
-                                    @endif
+
+                                    @foreach ($userBorrowed as $borrowedBooks)
+                                        <tr>
+                                            <td>{{ $borrowedBooks->title }}</td>
+                                            <td>{{ $borrowedBooks->accNo }}</td>
+                                            <td>{{ $borrowedBooks->date }}</td>
+                                            <td>{{ $borrowedBooks->borrowedDate }}</td>
+                                            <td>{{ $borrowedBooks->duration }} Day</td>
+                                            <td>{{ $borrowedBooks->delay }} Day/s</td>
+                                        </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
+                            @if ($userBorrowed->isEmpty())
+                                <div class="text-center fs-4 text-danger"><strong>Empty!</strong></div>
+                            @else
+                            @endif
                         </div>
                     </section>
 

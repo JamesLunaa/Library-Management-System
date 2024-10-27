@@ -29,27 +29,28 @@
 
                     <section class="userList mt-4">
                         <div class="recHeight">
+
+                            <table class="table table-dark">
+                                <thead class="text-center">
+                                    <tr>
+                                        <th scope="col">User I.D</th>
+                                        <th scope="col">Date</th>
+                                        <th scope="col">Feedbacks</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="text-center">
+                                    @foreach ($feedbacks as $list)
+                                        <tr>
+                                            <td>{{ $list->userId }}</td>
+                                            <td>{{ $list->date }}</td>
+                                            <td>{{ $list->info }}</td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
                             @if ($feedbacks->isEmpty())
                                 <div class="text-center fs-4 text-danger"><strong>Empty!</strong></div>
                             @else
-                                <table class="table table-dark">
-                                    <thead class="text-center">
-                                        <tr>
-                                            <th scope="col">User I.D</th>
-                                            <th scope="col">Date</th>
-                                            <th scope="col">Feedbacks</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody class="text-center">
-                                        @foreach ($feedbacks as $list)
-                                            <tr>
-                                                <td>{{ $list->userId }}</td>
-                                                <td>{{ $list->date }}</td>
-                                                <td>{{ $list->info }}</td>
-                                            </tr>
-                                        @endforeach
-                                    </tbody>
-                                </table>
                             @endif
                         </div>
                     </section>

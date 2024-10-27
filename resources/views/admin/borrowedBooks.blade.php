@@ -47,58 +47,58 @@
 
                     <section class="mt-4">
                         <div class="reqHeight">
+
+                            <table class="table table-dark">
+                                <thead class="text-center">
+                                    <tr>
+                                        <th scope="col">Name</th>
+                                        <th scope="col">Library ID</th>
+                                        <th scope="col">Title</th>
+                                        <th scope="col">Acc No.</th>
+                                        <th scope="col">Request Date</th>
+                                        <th scope="col">Borrowed Date</th>
+                                        <th scope="col">Delayed</th>
+                                        <th scope="col">Remarks</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="text-center">
+                                    @foreach ($borrowed as $borrow)
+                                        <tr>
+                                            <td>{{ $borrow->name }}</td>
+                                            <td>{{ $borrow->libraryId }}</td>
+                                            <td>{{ $borrow->title }}</td>
+                                            <td>{{ $borrow->accNo }}</td>
+                                            <td>{{ $borrow->date }}</td>
+                                            <td>{{ $borrow->borrowedDate }}</td>
+                                            <td>{{ $borrow->delay }} Day/s</td>
+                                            <td>
+                                                <div class="d-flex justify-content-center gap-2">
+                                                    <form action="{{ route('markReturned') }}" method="POST"
+                                                        onsubmit="return confirm('Are you sure you want to mark as returned?')">
+                                                        @csrf
+                                                        <input type="hidden" name="id"
+                                                            value="{{ $borrow->id }}">
+                                                        <button class="btn btn-success" type="submit" name="returned"
+                                                            value="{{ $borrow->accNo }}">Returned</button>
+                                                    </form>
+
+                                                    <form action="{{ route('markLost') }}" method="POST"
+                                                        onsubmit="return confirm('Are you sure you want to mark as lost?')">
+                                                        @csrf
+                                                        <input type="hidden" name="id"
+                                                            value="{{ $borrow->id }}">
+                                                        <button class="btn btn-danger" type="submit" name="lost"
+                                                            value="{{ $borrow->accNo }}">Lost</button>
+                                                    </form>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
                             @if ($borrowed->isEmpty())
                                 <div class="text-center fs-4 text-danger"><strong>Empty!</strong></div>
                             @else
-                                <table class="table table-dark">
-                                    <thead class="text-center">
-                                        <tr>
-                                            <th scope="col">Name</th>
-                                            <th scope="col">Library ID</th>
-                                            <th scope="col">Title</th>
-                                            <th scope="col">Acc No.</th>
-                                            <th scope="col">Request Date</th>
-                                            <th scope="col">Borrowed Date</th>
-                                            <th scope="col">Delayed</th>
-                                            <th scope="col">Remarks</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody class="text-center">
-                                        @foreach ($borrowed as $borrow)
-                                            <tr>
-                                                <td>{{ $borrow->name }}</td>
-                                                <td>{{ $borrow->libraryId }}</td>
-                                                <td>{{ $borrow->title }}</td>
-                                                <td>{{ $borrow->accNo }}</td>
-                                                <td>{{ $borrow->date }}</td>
-                                                <td>{{ $borrow->borrowedDate }}</td>
-                                                <td>{{ $borrow->delay }} Day/s</td>
-                                                <td>
-                                                    <div class="d-flex justify-content-center gap-2">
-                                                        <form action="{{ route('markReturned') }}" method="POST"
-                                                            onsubmit="return confirm('Are you sure you want to mark as returned?')">
-                                                            @csrf
-                                                            <input type="hidden" name="id"
-                                                                value="{{ $borrow->id }}">
-                                                            <button class="btn btn-success" type="submit"
-                                                                name="returned"
-                                                                value="{{ $borrow->accNo }}">Returned</button>
-                                                        </form>
-
-                                                        <form action="{{ route('markLost') }}" method="POST"
-                                                            onsubmit="return confirm('Are you sure you want to mark as lost?')">
-                                                            @csrf
-                                                            <input type="hidden" name="id"
-                                                                value="{{ $borrow->id }}">
-                                                            <button class="btn btn-danger" type="submit" name="lost"
-                                                                value="{{ $borrow->accNo }}">Lost</button>
-                                                        </form>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                        @endforeach
-                                    </tbody>
-                                </table>
                             @endif
                         </div>
                     </section>

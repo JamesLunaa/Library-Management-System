@@ -90,8 +90,8 @@ Route::middleware(['auth', 'checkAccountLevel:librarian'])->group(function () {
     Route::post('/librarian/rejectRequest', [RequestInboxController::class, 'rejectRequest'])->name('rejectRequest');
     
     //Manage Book List
-    Route::get('/librarian/searchBook', [SearchBookController::class, 'bookList'])->name('admin.searchBook');
-    Route::post('/librarian/bookList', [SearchBookController::class, 'bookList']) ->name('bookList');
+    Route::get('/librarian/searchBook', [SearchBookController::class, 'bookListAdmin'])->name('admin.searchBook');
+    Route::post('/librarian/bookListAdmin', [SearchBookController::class, 'bookListAdmin']) ->name('bookListAdmin');
     Route::post('/librarian/changeStatus', [SearchBookController::class, 'changeStatus']) ->name('changeStat');
 
 });

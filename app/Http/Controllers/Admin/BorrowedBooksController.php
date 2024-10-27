@@ -119,35 +119,39 @@ class BorrowedBooksController extends Controller
                 'remarks' => $bookData->remarks,
                 'status' => $bookData->status
             ]);
+                BorrowedBook::where('accNo', $accessionNo)
+                ->where('remarks', 'Lost')
+                ->delete();
 
-            //Sub steps
-            BorrowedBook::where('accNo', $accessionNo)
-            ->update(['status' => 'Phased Out']);
-
-            $bookData2 = BorrowedBook::where('accNo', $accessionNo)->get();
-
-            foreach ($bookData2 as $book2) {
-                Record::create([
-                    'name' => $book2->name,
-                    'libraryId' => $book2->libraryId,
-                    'title' => $book2->title,
-                    'accNo' => $book2->accNo,
-                    'date' => $book2->date,
-                    'borrowedDate' => $book2->borrowedDate,
-                    'return_date' => now(), // Inserting current timestamp
-                    'remarks' => $book2->remarks,
-                    'status' => $book2->status
-                ]);
-            }
+                BorrowedBook::where('accNo', $accessionNo)
+                ->update(['status' => 'Phased Out']);
+    
+                $bookData2 = BorrowedBook::where('accNo', $accessionNo)->get();
+    
+                foreach ($bookData2 as $book2) {
+                    Record::create([
+                        'name' => $book2->name,
+                        'libraryId' => $book2->libraryId,
+                        'title' => $book2->title,
+                        'accNo' => $book2->accNo,
+                        'date' => $book2->date,
+                        'borrowedDate' => $book2->borrowedDate,
+                        'return_date' => now(), // Inserting current timestamp
+                        'remarks' => $book2->remarks,
+                        'status' => $book2->status
+                    ]);
+                }
+                
+                // Step 4: Delete the entry from the borrowedbooks table
+                BorrowedBook::where('accNo', $accessionNo)
+                ->delete();
+                
+                // Step 5: Delete the entry from the books table
+                Books::where('accNo', $accessionNo)->delete();
+                
+                return redirect()->back()->with('success', 'Book is lost.');
             
-            // Step 4: Delete the entry from the borrowedbooks table
-            BorrowedBook::where('accNo', $accessionNo)
-            ->delete();
             
-            // Step 5: Delete the entry from the books table
-            Books::where('accNo', $accessionNo)->delete();
-            
-            return redirect()->back()->with('success', 'Book is lost.');
         }catch (Exception $e) {
             // Log the error
             return redirect()->back()->with('error', 'Failed to return the book.');

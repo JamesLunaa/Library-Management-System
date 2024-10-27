@@ -17,7 +17,7 @@ class UserBookController extends Controller
             $info = $request->input('info');
             
             $bookList = DB::table('books')
-                ->select('title', 'accNo', 'status')
+                ->select('title', 'accNo', 'status' , 'image_path')
                 ->where('accNo', $info)
                 ->orWhere('title', $info)
                 ->orWhere(DB::raw('LOWER(title)'), 'LIKE', "%".strtolower($info)."%")
@@ -27,7 +27,7 @@ class UserBookController extends Controller
         }
         else {
             $bookList = DB::table('books')
-                ->select('title', 'accNo', 'status')
+                ->select('title', 'accNo', 'status', 'image_path')
 
                 ->orderBy('title', 'ASC')
                 ->get();
