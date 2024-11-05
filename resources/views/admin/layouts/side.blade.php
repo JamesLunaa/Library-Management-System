@@ -1,4 +1,4 @@
-<div class="card cardBorder d-flex flex-column flex-shrink-0"
+<div id="admin-sidebar" class="card cardBorder d-flex flex-column flex-shrink-0"
     style="width: 280px; min-height: 100vh; background-color: #09191b;">
     <div class="card-header menuHead">
         <div class="fs-4 text-center mt-1">
@@ -111,3 +111,4 @@
     </div>
 
 </div>
+

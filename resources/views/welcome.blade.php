@@ -12,6 +12,7 @@
         body {
             background-color: #f8f9fa;
         }
+        
 
         .card {
             border: none;
@@ -19,34 +20,13 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
-        #not-available {
-            display: none !important;
-        }
 
-        @media screen and (max-width: 1024px) {
-            #main-content {
-                display: none !important;
-            }
-
-            #not-available {
-                display: block !important;
-                text-align: center;
-                font-size: 20px;
-                margin-top: 50px;
-            }
-
-            body {
-                background-color: maroon;
-            }
-        }
+        
     </style>
 </head>
 
 <body>
     <div class="container vh-100 d-flex align-items-center justify-content-center">
-        <div id="not-available" class="card pb-4 border w-50 shadow-lg" style="max-width: 400px;">
-            <h1>This website is currently not available on your device.</h1>
-        </div>
         <div id="main-content" class="card pb-4 border w-50 shadow-lg" style="max-width: 400px;">
             <div class="card-header p-3 mb-4 text-center text-white">
                 <h4>Library Login</h4>

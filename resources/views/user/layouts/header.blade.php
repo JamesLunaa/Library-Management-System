@@ -1,4 +1,4 @@
-<div class="card-header border-secondary">
+<div id="user-header" class="card-header border-secondary">
     <div class="dropdown d-flex justify-content-end">
         <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle"
             id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">

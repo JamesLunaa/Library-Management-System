@@ -12,7 +12,7 @@
 </head>
 
 <body>
-    <div class="mainCont d-flex text-white">
+    <div id="no-scroll" class="mainCont d-flex text-white">
 
         @include('user.layouts.side')
 
@@ -23,19 +23,19 @@
 
                 @include('user.layouts.header')
 
-                <div class="card-body mainDisplay">
-                    <div class="text-center mb-5">
+                <div id="request-status" class="card-body mainDisplay border border-danger">
+                    <div id="page-title" class="text-center mb-5">
                         <h1>Request Status</h1>
                     </div>
                     <div class="text-center">
-                        <a href="{{ route('user.requestStatus') }}"><button type="submit"
+                        <a id="remove-reload" href="{{ route('user.requestStatus') }}"><button type="submit"
                                 class="btn btn-secondary fs-5">Reload</button></a>
                     </div>
 
 
 
                     <section class="userList mt-4">
-                        <div class="reqHeight">
+                        <div id="request-height" class="reqHeight">
 
                             <table class="table table-bordered table-dark">
                                 <thead class="text-center">
@@ -74,7 +74,7 @@
                                                     onsubmit="return confirm('Are you sure you want to cancel the request?')">
                                                     @csrf
                                                     <input type="hidden" name="id" value="{{ $request->id }}">
-                                                    <button class="btn btn-danger" type="submit" name="cancel"
+                                                    <button id="cancel-button" class="btn btn-danger" type="submit" name="cancel"
                                                         value="{{ $request->accNo }}" {{ $disabled }}>
                                                         Cancel
                                                     </button>
@@ -100,6 +100,13 @@
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const hamBurger = document.querySelector(".toggle-btn");
+
+        hamBurger.addEventListener("click", function () {
+        document.querySelector("#sidebar").classList.toggle("expand");
+        });
+    </script>
 </body>
 
 </html>

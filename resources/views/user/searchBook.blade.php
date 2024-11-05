@@ -11,12 +11,12 @@
 </head>
 
 <body>
-    <div class="mainCont d-flex text-white">
+    <div id="no-scroll" class="mainCont d-flex text-white">
 
         @include('user.layouts.side')
 
         <!-- content here -->
-        <div class="d-flex min-vh-100" style="width: 200%;">
+        <div id="main-display" class="d-flex min-vh-100" style="width: 200%;">
 
             <div class="card min-vh-100 cardBorder" style="width: 200%;">
 
@@ -24,7 +24,7 @@
 
                 <div class="card-body mainDisplay">
 
-                    <div class="text-center mt-4 mx-4">
+                    <div id="book-list-margin" class="text-center mt-4 mx-4">
                         <div class="d-flex gap-2">
                             <form action="{{ route('bookList') }}" class="flex-fill d-flex gap-2" method="post">
                                 @csrf
@@ -38,12 +38,12 @@
                                             type="submit">Search</button></a>
                                 </div>
                             </form>
-                            <a href="{{ route('user.searchBook') }}"><button type="submit"
+                            <a id="remove-reload" href="{{ route('user.searchBook') }}"><button type="submit"
                                     class="btn btn-lg btn-secondary">Reload</button></a>
                         </div>
                     </div>
 
-                    <div class="list shadow rounded-3 pt-3">
+                    <div id="book-list" class="list shadow rounded-3 pt-3">
                         <h3 class="text-center">Book List</h3>
                         <hr>
                         @if (session('success'))
@@ -123,6 +123,13 @@
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const hamBurger = document.querySelector(".toggle-btn");
+
+        hamBurger.addEventListener("click", function () {
+        document.querySelector("#sidebar").classList.toggle("expand");
+        });
+    </script>
 </body>
 
 </html>
