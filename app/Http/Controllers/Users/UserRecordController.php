@@ -32,7 +32,7 @@ class UserRecordController extends Controller
                     'status', 'remarks')
             ->where('libraryId', $userId)
             ->orderBy('id', 'DESC')
-            -limit(20)
+            ->limit(20)
             ->get();
         }
         return view('user.userRecords', ['recordList' => $userRecord]);

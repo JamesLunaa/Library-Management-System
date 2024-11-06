@@ -11,6 +11,20 @@ use Exception;
 
 class SearchBookController extends Controller
 {
+    public function ajaxSearch(Request $request){
+    $info = $request->input('info');
+    $bookList = DB::table('books as b')
+        ->select('b.title', 'b.accNo', 'b.status as book_status', 'b.image_path')
+        ->where('b.accNo', 'LIKE', '%' . $info . '%')
+        ->orWhere('b.title', 'LIKE', '%' . $info . '%')
+        ->distinct()
+        ->orderBy('b.title', 'ASC')
+        ->limit(10)
+        ->get();
+
+    return response()->json($bookList);
+    }
+
     public function bookListAdmin(Request $request) {
         if ($request->has('search') && $request->filled('info')) {
             $info = $request->input('info');

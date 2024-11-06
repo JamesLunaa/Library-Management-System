@@ -29,7 +29,7 @@
                             <form action="{{ route('bookListAdmin') }}" class="flex-fill d-flex gap-2" method="post">
                                 @csrf
                                 <div class="input-group input-group-lg mb-3">
-                                    <input name="info" type="text" class="form-control shadow-sm"
+                                    <input id="search-input" name="info" type="text" class="form-control shadow-sm"
                                         aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg"
                                         placeholder="Search...">
                                 </div>
@@ -59,7 +59,7 @@
                         <h3 class="text-center">Book List</h3>
                         <hr>
 
-                        <div class="d-flex flex-wrap justify-content-center border-start rounded-3 p-4 gap-5 bookList">
+                        <div id="bookListContainer" class="d-flex flex-wrap justify-content-center border-start rounded-3 p-4 gap-5 bookList">
                             @foreach ($list as $books)
                                 @php
                                     // Determine the status color based on book_status
@@ -131,6 +131,70 @@
             hideAlert('error-alert');
         });
     </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            // Trigger AJAX search on keyup event
+            $('#search-input').on('keyup', function () {
+                const query = $(this).val();
+    
+                $.ajax({
+                    url: "{{ route('ajax.bookSearch') }}",
+                    method: "POST",
+                    data: {
+                        _token: "{{ csrf_token() }}",
+                        info: query
+                    },
+                    success: function (response) {
+                        // Clear current book list
+                        $('#bookListContainer').empty();
+    
+                        // Check if results are empty
+                        if (response.length === 0) {
+                            $('#bookListContainer').html('<div class="text-center fs-4 text-danger"><strong>No results found!</strong></div>');
+                        } else {
+                            // Populate book list with new results
+                            response.forEach(book => {
+                                const statusColor = book.book_status === 'Available' ? 'color: #00FA9A;' : 'color: gold;';
+                                const availableDisabled = book.book_status === 'Available' ? 'disabled' : '';
+                                const unavailableDisabled = book.book_status === 'Unavailable' ? 'disabled' : '';
+    
+                                $('#bookListContainer').append(`
+                                    <div class='col-12 col-sm-6 col-md-4 col-lg-3'>
+                                        <div class='card ind text-center'>
+                                            <img src='/BookCovers/${book.image_path}' class='card-img-top'
+                                                alt='Book cover for ${book.title}' style='height: 13rem; width: auto;'
+                                                onerror="this.onerror=null;this.src='/icons/borrowedBook.png';">
+                                            <div class='card-body text-white'>
+                                                <h5 class='card-title fw-bold fs-4'>${book.title}</h5><br>
+                                                <h5 class='card-title'>Acc No. ${book.accNo}</h5><br>
+                                                <h5 class="card-title" style="${statusColor}">
+                                                    ${book.book_status}</h5>
+    
+                                                <!-- Buttons to change status -->
+                                                <form method="POST" action="{{ route('changeStat') }}" onsubmit="return confirmStatus()">
+                                                    @csrf
+                                                    <input type="hidden" name="accNo" value="${book.accNo}">
+                                                    <button type="submit" name="new_status" value="Available"
+                                                        class="btn btn-success" ${availableDisabled}>Available</button>
+                                                    <button type="submit" name="new_status" value="Unavailable"
+                                                        class="btn btn-danger" ${unavailableDisabled}>Unavailable</button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                `);
+                            });
+                        }
+                    },
+                    error: function () {
+                        $('#bookListContainer').html('<div class="text-center fs-4 text-danger"><strong>Error loading results.</strong></div>');
+                    }
+                });
+            });
+        });
+    </script>
+    
 </body>
 
 </html>

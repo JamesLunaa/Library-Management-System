@@ -93,7 +93,7 @@ Route::middleware(['auth', 'checkAccountLevel:librarian'])->group(function () {
     Route::get('/librarian/searchBook', [SearchBookController::class, 'bookListAdmin'])->name('admin.searchBook');
     Route::post('/librarian/bookListAdmin', [SearchBookController::class, 'bookListAdmin']) ->name('bookListAdmin');
     Route::post('/librarian/changeStatus', [SearchBookController::class, 'changeStatus']) ->name('changeStat');
-
+    Route::post('/librarian/ajaxSearch', [SearchBookController::class, 'ajaxSearch'])->name('ajax.bookSearch');
 });
 
 //User Routes
@@ -106,6 +106,7 @@ Route::middleware(['auth', 'checkAccountLevel:user'])->group(function () {
     Route::post('/user/borrow', [UserBookController::class, 'borrow']) ->name('borrow');
     Route::post('/user/thisBook', [UserBookController::class, 'thisBook']) ->name('thisBook');
     Route::get('/user/confirmBook', [UserBookController::class, 'confirmBook'])->name('confirmBook');
+    Route::post('/user/ajaxSearch', [UserBookController::class, 'userAjaxSearch'])->name('user.ajax.bookSearch');
 
     //Manage Request
     Route::get('/user/requestStatus', [RequestController::class, 'requestList'])->name('user.requestStatus');
