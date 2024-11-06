@@ -74,7 +74,7 @@
                             <!-- Character Count Display -->
                             <div id="charCount" class="form-text text-end text-dark">0/255</div>
                         </div>
-                        <button type="submit" name="send" class="btn btn-primary fs-5">Send</button>
+                        <button id="feedback-send" type="submit" name="send" class="btn btn-primary fs-5">Send</button>
                     </form>
 
                 </div>

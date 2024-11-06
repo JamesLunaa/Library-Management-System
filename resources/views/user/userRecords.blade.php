@@ -12,7 +12,7 @@
 </head>
 
 <body>
-    <div class="mainCont d-flex text-white">
+    <div id="no-scroll" class="mainCont d-flex text-white">
 
         @include('user.layouts.side')
 
@@ -24,12 +24,12 @@
                 @include('user.layouts.header')
 
                 <div class="card-body mainDisplay">
-                    <div class="text-center mb-5">
+                    <div id="page-title" class="text-center mb-5">
                         <h1>Records</h1>
                     </div>
-                    <div class="text-center mt-4 mx-4">
+                    <div id="margin-form" class="text-center mt-4 mx-4">
                         <div class="d-flex gap-2">
-                            <form action="{{ route('userRecords') }}" class="flex-fill d-flex gap-2" method="post">
+                            <form id="search-form" action="{{ route('userRecords') }}" class="flex-fill d-flex gap-2" method="post">
                                 @csrf
                                 <div class="input-group input-group-lg mb-3">
                                     <input name="info" type="number" class="form-control shadow-sm"
@@ -42,25 +42,25 @@
                                             type="submit">Search</button></a>
                                 </div>
                             </form>
-                            <a href="{{ route('user.records') }}"><button type="submit"
+                            <a id="remove-reload" href="{{ route('user.records') }}"><button type="submit"
                                     class="btn btn-lg btn-secondary">Reload</button></a>
                         </div>
                     </div>
 
                     <section class="userList mt-4">
-                        <div class="recHeight">
+                        <div id="request-height" class="recHeight">
                             <table class="table table-bordered table-dark">
                                 <thead class="text-center">
                                     <tr>
-                                        <th scope="col">Name</th>
-                                        <th scope="col">Library I.D</th>
+                                        <th id="record-name" scope="col">Name</th>
+                                        <th id="record-id" scope="col">Library I.D</th>
                                         <th scope="col">Title</th>
                                         <th scope="col">Acc No.</th>
-                                        <th scope="col">Request Date</th>
-                                        <th scope="col">Borrowed Date</th>
-                                        <th scope="col">Returned Date</th>
-                                        <th scope="col">Status</th>
-                                        <th scope="col">Remarks</th>
+                                        <th id="record-date" scope="col">Request Date</th>
+                                        <th id="borrowed-date" scope="col">Borrowed Date</th>
+                                        <th id="" scope="col">Returned Date</th>
+                                        <th id="" scope="col">Status</th>
+                                        <th id="" scope="col">Remarks</th>
                                     </tr>
                                 </thead>
                                 <tbody class="text-center">

@@ -27,7 +27,7 @@
                     <div class="text-center">
                         <h1>Attendance</h1>
                     </div>
-                    <div class="text-center mt-4 mx-4">
+                    <div class="text-center mx-4">
 
                         <div class="d-flex gap-2">
 

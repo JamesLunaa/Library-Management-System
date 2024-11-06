@@ -48,7 +48,7 @@
                                     class="fs-5 form-control" required>
                             </div>
 
-                            <button type="submit" name="submit" class="btn btn-primary">Change</button>
+                            <button id="change-pass" type="submit" name="submit" class="btn btn-primary">Change</button>
                         </form>
                     </div>
 
