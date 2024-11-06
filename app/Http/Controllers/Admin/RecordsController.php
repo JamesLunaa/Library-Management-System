@@ -23,7 +23,9 @@ class RecordsController extends Controller
             ->get();
             
         }else{
-            $records = DB::table('records')->orderBy('id', 'DESC')->get();
+            $records = DB::table('records')->orderBy('id', 'DESC')
+            ->limit(20)
+            ->get();
         }
 
         return view('admin.records', ['recordsList' => $records]);

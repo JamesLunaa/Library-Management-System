@@ -21,7 +21,9 @@ class AttendanceController extends Controller
             ->get();
             
         }else{
-            $attendance = DB::table('attendance')->orderBy('date', 'DESC')->get();
+            $attendance = DB::table('attendance')->orderBy('date', 'DESC')
+            ->limit(20)
+            ->get();
         }
         return view('admin.attendance', ['attendanceList' => $attendance]);
     }

@@ -33,7 +33,6 @@
                                         aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg"
                                         placeholder="Search...">
                                 </div>
-
                                 <div class="d-flex gap-2">
                                     <a href=""><button name="search" class="btn btn-primary text-white btn-lg"
                                             type="submit">Search</button></a>

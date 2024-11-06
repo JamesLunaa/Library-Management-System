@@ -26,9 +26,8 @@ class RemoveUserController extends Controller
             ->leftJoin('borrowedbooks as bb', 'b.libraryId', '=', 'bb.libraryId')
             ->select('b.name', 'b.libraryId', 'bb.form')
             ->where('b.accLevel', 'user')
+            ->limit(20)
             ->get();
-
-            
         }
         return view('admin.removeUser', ['remove' => $userList]);
     }

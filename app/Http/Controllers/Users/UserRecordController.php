@@ -21,6 +21,7 @@ class UserRecordController extends Controller
                     'status', 'remarks')
             ->where('accNo', $info)
             ->where('libraryId', $userId)
+            ->limit(10)
             ->get();
         }else {
             $userId = session('libId');
@@ -31,6 +32,7 @@ class UserRecordController extends Controller
                     'status', 'remarks')
             ->where('libraryId', $userId)
             ->orderBy('id', 'DESC')
+            -limit(20)
             ->get();
         }
         return view('user.userRecords', ['recordList' => $userRecord]);

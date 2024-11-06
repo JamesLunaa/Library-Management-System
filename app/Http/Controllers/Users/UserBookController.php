@@ -21,15 +21,15 @@ class UserBookController extends Controller
                 ->where('accNo', $info)
                 ->orWhere('title', $info)
                 ->orWhere(DB::raw('LOWER(title)'), 'LIKE', "%".strtolower($info)."%")
-                
                 ->orderBy('title', 'ASC')
+                ->limit(10)
                 ->get();
         }
         else {
             $bookList = DB::table('books')
                 ->select('title', 'accNo', 'status', 'image_path')
-
                 ->orderBy('title', 'ASC')
+                ->limit(20)
                 ->get();
         }
         return view('user.searchBook', ['list' => $bookList]);
