@@ -1,9 +1,3 @@
-.card-header {
-    background-color: maroon;
-}
-
-
-
 /* section */
 .recHeight {
     min-height: 50vh;
@@ -50,6 +44,12 @@
 body {
     background-color: maroon;
 }
+#attendance {
+    background-color: gold !important;
+}
+#attendance .card-body {
+    background-color: gold !important;
+}
 
 .mainDisplay {
     background-color: #f0f0fb;
@@ -85,17 +85,16 @@ body {
 
 /* sample color close to red */
 .Salmon {
-    color: #FA8072;
+    color: #fa8072;
 }
 
 /* sample color close to green */
 .MediumSpringGreen {
-    color: #00FA9A;
+    color: #00fa9a;
 }
 
-
 .btn-success {
-    background-color:#00FA9A !important;
+    background-color: #00fa9a !important;
     border: none !important;
     color: #006400;
 }
@@ -128,10 +127,6 @@ textarea {
 
 /* Desktop (between 992px and 1200px) */
 @media (max-width: 1200px) and (min-width: 992px) {
-    
-
-
-
 }
 
 /* Tablet (between 768px and 992px) */
@@ -152,7 +147,7 @@ textarea {
     .wrapper {
         display: flex;
     }
-    
+
     .main {
         min-height: 100vh;
         width: 100%;
@@ -160,76 +155,76 @@ textarea {
         transition: all 0.35s ease-in-out;
         background-color: #fafbfe;
     }
-    
+
     #sidebar {
         width: 70px;
         min-width: 70px;
         z-index: 1000;
-        transition: all .25s ease-in-out;
+        transition: all 0.25s ease-in-out;
         background-color: maroon;
         display: flex;
         flex-direction: column;
     }
-    
+
     #sidebar.expand {
         width: 260px;
         min-width: 260px;
     }
-    
+
     .toggle-btn {
         background-color: transparent;
         cursor: pointer;
         border: 0;
         padding: 1rem 1.5rem;
     }
-    
+
     .toggle-btn i {
         font-size: 1.5rem;
-        color: #FFF;
+        color: #fff;
     }
-    
+
     .sidebar-logo {
         margin: auto 0;
     }
-    
+
     .sidebar-logo a {
-        color: #FFF;
+        color: #fff;
         font-size: 1.15rem;
         font-weight: 600;
     }
-    
+
     #sidebar:not(.expand) .sidebar-logo,
     #sidebar:not(.expand) a.sidebar-link span {
         display: none;
     }
-    
+
     .sidebar-nav {
         padding: 2rem 0;
         flex: 1 1 auto;
     }
-    
+
     a.sidebar-link {
-        padding: .625rem 1.625rem;
-        color: #FFF;
+        padding: 0.625rem 1.625rem;
+        color: #fff;
         display: block;
         font-size: 0.9rem;
         white-space: nowrap;
         border-left: 3px solid transparent;
     }
-    
+
     .sidebar-link i {
         font-size: 1.1rem;
-        margin-right: .75rem;
+        margin-right: 0.75rem;
     }
 
     a {
         text-decoration: none !important;
     }
-    
+
     .sidebar-item {
         position: relative;
     }
-    
+
     #sidebar:not(.expand) .sidebar-item .sidebar-dropdown {
         position: absolute;
         top: 0;
@@ -239,17 +234,20 @@ textarea {
         min-width: 15rem;
         display: none;
     }
-    
-    #sidebar:not(.expand) .sidebar-item:hover .has-dropdown+.sidebar-dropdown {
+
+    #sidebar:not(.expand)
+        .sidebar-item:hover
+        .has-dropdown
+        + .sidebar-dropdown {
         display: block;
         max-height: 15em;
         width: 100%;
         opacity: 1;
     }
-    
+
     #sidebar.expand .sidebar-link[data-bs-toggle="collapse"]::after {
         border: solid;
-        border-width: 0 .075rem .075rem 0;
+        border-width: 0 0.075rem 0.075rem 0;
         content: "";
         display: inline-block;
         padding: 2px;
@@ -257,15 +255,14 @@ textarea {
         right: 1.5rem;
         top: 1.4rem;
         transform: rotate(-135deg);
-        transition: all .2s ease-out;
+        transition: all 0.2s ease-out;
     }
-    
+
     #sidebar.expand .sidebar-link[data-bs-toggle="collapse"].collapsed::after {
         transform: rotate(45deg);
-        transition: all .2s ease-out;
+        transition: all 0.2s ease-out;
     }
     /* end user side bar */
-
 
     /* book list main display */
     #book-list {
@@ -287,12 +284,10 @@ textarea {
         overflow-y: hidden !important;
     }
     #page-title {
-        
         margin: 0 !important;
     }
     table {
         font-size: 15px !important;
-        
     }
     #request-height {
         min-height: 60vh;
@@ -325,8 +320,7 @@ textarea {
         flex-direction: column !important;
         align-items: center;
     }
-    #search-form button{
-        
+    #search-form button {
         margin: 0 !important;
     }
     #margin-form {
@@ -341,13 +335,10 @@ textarea {
         font-size: 1.5rem !important;
         margin-top: 1rem;
     }
-    
 }
 
 /* Phone (up to 768px) */
 @media (max-width: 768px) {
-
-
     /* welcome.blade */
     #main-content {
         max-width: none !important;
@@ -363,7 +354,6 @@ textarea {
     }
 
     /* end welcome.blade */
-    
 
     /* user side bar */
     #user-sidebar {
@@ -381,7 +371,7 @@ textarea {
     .wrapper {
         display: flex;
     }
-    
+
     .main {
         min-height: 100vh;
         width: 100%;
@@ -389,76 +379,76 @@ textarea {
         transition: all 0.35s ease-in-out;
         background-color: #fafbfe;
     }
-    
+
     #sidebar {
         width: 70px;
         min-width: 70px;
         z-index: 1000;
-        transition: all .25s ease-in-out;
+        transition: all 0.25s ease-in-out;
         background-color: maroon;
         display: flex;
         flex-direction: column;
     }
-    
+
     #sidebar.expand {
         width: 260px;
         min-width: 260px;
     }
-    
+
     .toggle-btn {
         background-color: transparent;
         cursor: pointer;
         border: 0;
         padding: 1rem 1.5rem;
     }
-    
+
     .toggle-btn i {
         font-size: 1.5rem;
-        color: #FFF;
+        color: #fff;
     }
-    
+
     .sidebar-logo {
         margin: auto 0;
     }
-    
+
     .sidebar-logo a {
-        color: #FFF;
+        color: #fff;
         font-size: 1.15rem;
         font-weight: 600;
     }
-    
+
     #sidebar:not(.expand) .sidebar-logo,
     #sidebar:not(.expand) a.sidebar-link span {
         display: none;
     }
-    
+
     .sidebar-nav {
         padding: 2rem 0;
         flex: 1 1 auto;
     }
-    
+
     a.sidebar-link {
-        padding: .625rem 1.625rem;
-        color: #FFF;
+        padding: 0.625rem 1.625rem;
+        color: #fff;
         display: block;
         font-size: 0.9rem;
         white-space: nowrap;
         border-left: 3px solid transparent;
     }
-    
+
     .sidebar-link i {
         font-size: 1.1rem;
-        margin-right: .75rem;
+        margin-right: 0.75rem;
     }
 
     a {
         text-decoration: none !important;
     }
-    
+
     .sidebar-item {
         position: relative;
     }
-    
+
     #sidebar:not(.expand) .sidebar-item .sidebar-dropdown {
         position: absolute;
         top: 0;
@@ -468,17 +458,20 @@ textarea {
         min-width: 15rem;
         display: none;
     }
-    
-    #sidebar:not(.expand) .sidebar-item:hover .has-dropdown+.sidebar-dropdown {
+
+    #sidebar:not(.expand)
+        .sidebar-item:hover
+        .has-dropdown
+        + .sidebar-dropdown {
         display: block;
         max-height: 15em;
         width: 100%;
         opacity: 1;
     }
-    
+
     #sidebar.expand .sidebar-link[data-bs-toggle="collapse"]::after {
         border: solid;
-        border-width: 0 .075rem .075rem 0;
+        border-width: 0 0.075rem 0.075rem 0;
         content: "";
         display: inline-block;
         padding: 2px;
@@ -486,15 +479,14 @@ textarea {
         right: 1.5rem;
         top: 1.4rem;
         transform: rotate(-135deg);
-        transition: all .2s ease-out;
+        transition: all 0.2s ease-out;
     }
-    
+
     #sidebar.expand .sidebar-link[data-bs-toggle="collapse"].collapsed::after {
         transform: rotate(45deg);
-        transition: all .2s ease-out;
+        transition: all 0.2s ease-out;
     }
     /* end user side bar */
-
 
     /* book list main display */
     #book-list {
@@ -516,12 +508,10 @@ textarea {
         overflow-y: hidden !important;
     }
     #page-title {
-        
         margin: 0 !important;
     }
     table {
         font-size: 10px !important;
-        
     }
     #request-height {
         min-height: 60vh;
@@ -554,7 +544,7 @@ textarea {
         flex-direction: column !important;
         align-items: center;
     }
-    #search-form button{
+    #search-form button {
         font-size: 15px;
         margin: 0 !important;
     }
@@ -562,5 +552,4 @@ textarea {
         margin: 0 !important;
     }
     /* end user records */
-    
 }

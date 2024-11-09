@@ -44,7 +44,6 @@ class SearchBookController extends Controller
             ->select('b.title', 'b.accNo', 'b.status as book_status', 'b.image_path')
             ->distinct()
             ->orderBy('b.title', 'ASC')
-            ->limit(20)
             ->get();
         }
         return view('admin.searchBook', ['list' => $bookList]);

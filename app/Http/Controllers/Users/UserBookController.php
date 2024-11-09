@@ -43,7 +43,6 @@ class UserBookController extends Controller
             $bookList = DB::table('books')
                 ->select('title', 'accNo', 'status', 'image_path')
                 ->orderBy('title', 'ASC')
-                ->limit(20)
                 ->get();
         }
         return view('user.searchBook', ['list' => $bookList]);

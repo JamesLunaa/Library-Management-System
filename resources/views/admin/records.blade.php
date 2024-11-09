@@ -30,7 +30,7 @@
                         <div class="d-flex flex-fill gap-2">
                             <form action="{{ route('records') }}" class="d-flex flex-fill gap-2" method="post">
                                 @csrf
-                                <div class="input-group input-group-lg gap-3">
+                                <div class="input-group input-group-lg gap-3 mb-4">
                                     <input name="info" type="text" class="form-control"
                                         aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg"
                                         placeholder="Search user I.D" required>

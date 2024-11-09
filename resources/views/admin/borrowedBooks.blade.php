@@ -31,7 +31,7 @@
 
                             <form action="{{ route('borrowedBooks') }}" class="flex-fill d-flex gap-2" method="post">
                                 @csrf
-                                <div class="input-group input-group-lg mb-3">
+                                <div class="input-group input-group-lg mb-4">
                                     <input name="info" type="text" class="form-control shadow-sm"
                                         placeholder="Search user I.D or Book Acc No.">
                                 </div>

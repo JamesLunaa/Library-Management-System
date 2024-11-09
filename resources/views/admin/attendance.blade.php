@@ -65,6 +65,20 @@
                                     </tr>
                                 </thead>
                                 <tbody class="text-center">
+                                    @if($totalAttendance !== null)
+                                    <div id="attendance" class="card text-bg-warning mb-3" style="max-width: 18rem;">
+                                        <div class="card-body">
+                                          <h5 class="card-title">User Attendance: {{ $totalAttendance }}</h5>
+                                        </div>
+                                    </div>
+                                    @else
+                                    <div id="attendance" class="card text-bg-warning mb-3" style="max-width: 18rem;">
+                                        <div class="card-body">
+                                          <h5 class="card-title">Total Records: {{ $totalRecord }}</h5>
+                                        </div>
+                                    </div>
+                                    @endif
+                                      
                                     @foreach ($attendanceList as $attendance)
                                         <tr>
 

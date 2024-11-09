@@ -19,12 +19,28 @@ class AttendanceController extends Controller
             ->whereYear('date', $year)
             ->orderBy('date', 'DESC')
             ->get();
+
+            $totalAttendance = DB::table('attendance')
+            ->where('libraryId', $info)
+            ->whereYear('date', $year)
+            ->count();
+
+            $totalRecord = null;
             
         }else{
             $attendance = DB::table('attendance')->orderBy('date', 'DESC')
             ->limit(20)
             ->get();
+
+            $totalAttendance = null;
+
+            $totalRecord = DB::table('attendance')
+            ->count();
         }
-        return view('admin.attendance', ['attendanceList' => $attendance]);
+        return view('admin.attendance', [
+            'attendanceList' => $attendance,
+            'totalAttendance' => $totalAttendance,
+            'totalRecord' => $totalRecord
+        ]);
     }
 }
