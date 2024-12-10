@@ -72,31 +72,37 @@
                                 @endphp
 
 
-                                <div class='col-12 col-sm-6 col-md-4 col-lg-3'>
-                                    <div class='card ind text-center'>
-                                        <img src='/BookCovers/{{ $books->image_path }}' class='card-img-top'
-                                            alt='Book cover for {{ $books->title }}' style='height: 13rem; width: auto;'
-                                            onerror="this.onerror=null;this.src='/icons/borrowedBook.png';">
-                                        <div class='card-body text-white'>
-                                            <h5 class='card-title fw-bold fs-4'>{{ $books->title }}</h5><br>
-                                            <h5 class='card-title'>Acc No. {{ $books->accNo }}</h5><br>
-                                            <h5 class="card-title" style="{{ $statusColor }}">
-                                                {{ $books->book_status }}</h5>
+                            <div class='col-12 col-sm-6 col-md-4 col-lg-3 d-flex'>
+                                <div class='card ind text-center h-100 d-flex flex-column'>
+                                    <img src='/BookCovers/{{ $books->image_path }}' class='card-img-top'
+                                        alt='Book cover for {{ $books->title }}' style='height: 13rem; width: auto;'
+                                        onerror="this.onerror=null;this.src='/icons/borrowedBook.png';">
 
-                                            <!-- Buttons to change status -->
-                                            <form method="POST" action="{{ route('changeStat') }}"
-                                                onsubmit="return confirmStatus()">
-                                                @csrf
-                                                <input type="hidden" name="accNo" value="{{ $books->accNo }}">
-                                                <button type="submit" name="new_status" value="Available"
-                                                    class="btn btn-success" {{ $availableDisabled }}>Available</button>
-                                                <button type="submit" name="new_status" value="Unavailable"
-                                                    class="btn btn-danger"
-                                                    {{ $unavailableDisabled }}>Unavailable</button>
-                                            </form>
-                                        </div>
+                                    <div class='card-body text-white d-flex flex-column'>
+                                        <h5 class='card-title fw-bold fs-4'>{{ $books->title }}</h5><br>
+                                        <h5 class='card-title'>Acc No. {{ $books->accNo }}</h5><br>
+                                        
+                                        <!-- Flexible content to push footer down -->
+                                        <div class="flex-grow-1"></div>
+                                    </div>
+
+                                    <!-- Buttons to change status (moved to the bottom) -->
+                                    <div class="card-footer mt-auto" style="background-color: maroon">
+                                        <h5 class="card-title" style="{{ $statusColor }}">
+                                            {{ $books->book_status }}</h5>
+                                        <form method="POST" action="{{ route('changeStat') }}" onsubmit="return confirmStatus()">
+                                            @csrf
+                                            <input type="hidden" name="accNo" value="{{ $books->accNo }}">
+                                            <button type="submit" name="new_status" value="Available" class="btn btn-success" {{ $availableDisabled }}>
+                                                Available
+                                            </button>
+                                            <button type="submit" name="new_status" value="Unavailable" class="btn btn-danger" {{ $unavailableDisabled }}>
+                                                Unavailable
+                                            </button>
+                                        </form>
                                     </div>
                                 </div>
+                            </div>
                             @endforeach
                             @if ($list->isEmpty())
                                 <div class="text-center fs-4 text-danger"><strong>Empty!</strong></div>
@@ -160,29 +166,38 @@
                                 const unavailableDisabled = book.book_status === 'Unavailable' ? 'disabled' : '';
     
                                 $('#bookListContainer').append(`
-                                    <div class='col-12 col-sm-6 col-md-4 col-lg-3'>
-                                        <div class='card ind text-center'>
+                                    <div class='col-12 col-sm-6 col-md-4 col-lg-3 d-flex'>
+                                        <div class='card ind text-center h-100 d-flex flex-column'>
                                             <img src='/BookCovers/${book.image_path}' class='card-img-top'
                                                 alt='Book cover for ${book.title}' style='height: 13rem; width: auto;'
                                                 onerror="this.onerror=null;this.src='/icons/borrowedBook.png';">
-                                            <div class='card-body text-white'>
+
+                                            <div class='card-body text-white d-flex flex-column'>
                                                 <h5 class='card-title fw-bold fs-4'>${book.title}</h5><br>
                                                 <h5 class='card-title'>Acc No. ${book.accNo}</h5><br>
+                                                
+                                                <!-- Flexible content to push footer down -->
+                                                <div class="flex-grow-1"></div>
+                                            </div>
+
+                                            <!-- Buttons to change status (moved to the bottom) -->
+                                            <div class="card-footer mt-auto" style="background-color: maroon">
                                                 <h5 class="card-title" style="${statusColor}">
                                                     ${book.book_status}</h5>
-    
-                                                <!-- Buttons to change status -->
                                                 <form method="POST" action="{{ route('changeStat') }}" onsubmit="return confirmStatus()">
                                                     @csrf
                                                     <input type="hidden" name="accNo" value="${book.accNo}">
-                                                    <button type="submit" name="new_status" value="Available"
-                                                        class="btn btn-success" ${availableDisabled}>Available</button>
-                                                    <button type="submit" name="new_status" value="Unavailable"
-                                                        class="btn btn-danger" ${unavailableDisabled}>Unavailable</button>
+                                                    <button type="submit" name="new_status" value="Available" class="btn btn-success" ${availableDisabled}>
+                                                        Available
+                                                    </button>
+                                                    <button type="submit" name="new_status" value="Unavailable" class="btn btn-danger" ${unavailableDisabled}>
+                                                        Unavailable
+                                                    </button>
                                                 </form>
                                             </div>
                                         </div>
                                     </div>
+
                                 `);
                             });
                         }
