@@ -29,6 +29,18 @@ class RequestController extends Controller
         $id = $request->input('id');
         $accessionNo = $request->input('cancel');
 
+        //Check Approved
+        $check = DB::table('borrowedbooks')
+        ->where('accNo', $accessionNo)
+        ->where('id', $id)
+        ->where('status', 'Approved')
+        ->exists();
+
+        if($check) {
+            return redirect()->route('user.requestStatus')->with('error', 'Unable to cancel, the request have already been approved');
+        }
+        
+
         BorrowedBook::where('accNo', $accessionNo)
         ->where('id', $id)
         ->delete();

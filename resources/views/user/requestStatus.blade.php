@@ -31,6 +31,34 @@
                         <a id="remove-reload" href="{{ route('user.requestStatus') }}"><button type="submit"
                                 class="btn btn-secondary fs-5">Reload</button></a>
                     </div>
+                    @if (session('success'))
+                        <div class="alert alert-success" id="success-alert">
+                            {{ session('success') }}
+                        </div>
+                    @endif
+
+                    @if (session('error'))
+                        <div class="alert alert-danger" id="error-alert">
+                            {{ session('error') }}
+                        </div>
+                    @endif
+                    <script>
+                        // Hide success alert after 5 seconds
+                        setTimeout(function() {
+                            let successAlert = document.getElementById('success-alert');
+                            if (successAlert) {
+                                successAlert.style.display = 'none';
+                            }
+                        }, 4000); // 5000ms = 5 seconds
+
+                        // Hide error alert after 5 seconds
+                        setTimeout(function() {
+                            let errorAlert = document.getElementById('error-alert');
+                            if (errorAlert) {
+                                errorAlert.style.display = 'none';
+                            }
+                        }, 4000); // 5000ms = 5 seconds
+                    </script>
 
 
 
@@ -74,8 +102,9 @@
                                                     onsubmit="return confirm('Are you sure you want to cancel the request?')">
                                                     @csrf
                                                     <input type="hidden" name="id" value="{{ $request->id }}">
-                                                    <button id="cancel-button" class="btn btn-danger" type="submit" name="cancel"
-                                                        value="{{ $request->accNo }}" {{ $disabled }}>
+                                                    <button id="cancel-button" class="btn btn-danger" type="submit"
+                                                        name="cancel" value="{{ $request->accNo }}"
+                                                        {{ $disabled }}>
                                                         Cancel
                                                     </button>
                                                 </form>
@@ -103,8 +132,8 @@
     <script>
         const hamBurger = document.querySelector(".toggle-btn");
 
-        hamBurger.addEventListener("click", function () {
-        document.querySelector("#sidebar").classList.toggle("expand");
+        hamBurger.addEventListener("click", function() {
+            document.querySelector("#sidebar").classList.toggle("expand");
         });
     </script>
 </body>
