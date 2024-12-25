@@ -354,6 +354,12 @@ textarea {
 
 /* Phone (up to 768px) */
 @media (max-width: 768px) {
+    /* rules.blade */
+    #vmc {
+        flex-wrap: wrap !important;
+    }
+    /* end rules.blade */
+
     /* welcome.blade */
     #main-content {
         max-width: none !important;

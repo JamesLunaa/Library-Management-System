@@ -98,6 +98,11 @@ Route::middleware(['auth', 'checkAccountLevel:librarian'])->group(function () {
 
 //User Routes
 Route::middleware(['auth', 'checkAccountLevel:user'])->group(function () {
+
+    //Rules
+    Route::get('/user/rules', function () {
+        return view('user.rules'); 
+    })->name('user.rules');
     
     //Manage Books
     Route::get('/user/searchBook', [UserBookController::class, 'bookList'])->name('user.searchBook');
@@ -126,6 +131,7 @@ Route::middleware(['auth', 'checkAccountLevel:user'])->group(function () {
     //Submit Feedback
     Route::get('/user/feedback', [UserPageController::class, 'feedback'])->name('user.feedback');
     Route::post('/user/feedback', [FeedbackController::class, 'sendFeedback'])->name('userFeedback');
+
 
 });
 

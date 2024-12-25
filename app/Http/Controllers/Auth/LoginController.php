@@ -46,7 +46,7 @@ class LoginController extends Controller
         // Log attendance if user is a regular user
         if ($user->accLevel === 'user') {
             $this->logAttendance($user);
-            return redirect()->route('user.searchBook'); // Redirect to user dashboard
+            return redirect()->route('user.rules'); // Redirect to user dashboard
         }
 
         // Redirect based on account level for non-regular users
