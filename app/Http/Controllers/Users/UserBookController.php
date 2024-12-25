@@ -79,6 +79,15 @@ class UserBookController extends Controller
         ->where('status', 'Approved')
         ->exists();
 
+        $availCheck = DB::table('books')
+        ->where('accNo', $accNo)
+        ->where('status', 'Unavailable')
+        ->exists();
+
+        if($availCheck) {
+            return redirect()->route('user.searchBook')->with('error', 'Book is currently unavailable');
+        }
+
         if($check) {
             return redirect()->route('user.searchBook')->with('error', 'You currently have a borrowed book or an approved request');
         }else {
