@@ -150,7 +150,7 @@
                     data: {
                         _token: "{{ csrf_token() }}",
                         info: query
-                    },
+                    },sss
                     success: function (response) {
                         // Clear current book list
                         $('#bookListContainer').empty();
