@@ -25,11 +25,11 @@
 
                 <div class="card-body mainDisplay">
                     <div class="text-center">
-                        <h1>User List</h1>
+                        <h1>Inactive User List</h1>
                     </div>
                     <div class="text-center mt-2 mx-4">
                         <div class="d-flex gap-2">
-                            <form action="{{ route('userList') }}" class="flex-fill d-flex gap-2" method="post">
+                            <form action="{{ route('inactiveListSearch') }}" class="flex-fill d-flex gap-2" method="post">
                                 @csrf
                                 <div class="input-group input-group-lg mb-3">
                                     <input type="number" name="libId" class="form-control shadow-sm"
@@ -41,7 +41,7 @@
                                             type="submit">Search</button></a>
                                 </div>
                             </form>
-                            <a href="{{ route('admin.removeUser') }}"><button type="submit"
+                            <a href="{{ route('inactiveList') }}"><button type="submit"
                                     class="btn btn-secondary btn-lg">Reload</button></a>
                             <div class="text-end">
                                 <a href="{{ route('inactiveList') }}"><button type="submit"
@@ -51,7 +51,7 @@
                     </div>
 
                     <div class="text-center">
-                        <a href="{{ route('admin.addUser') }}"><button type="submit"
+                        <a href="{{ route('admin.removeUser') }}"><button type="submit"
                                 class="btn btn-danger btn-lg">Return</button></a>
                         
                     </div>
@@ -73,21 +73,15 @@
                                             <td>{{ $users->name }}</td>
                                             <td>{{ $users->libraryId }}</td>
                                             <td>
-                                                @if ($users->form == 'Claimed')
-                                                    <span style="color: #FA8072;">Still has a borrowed book!</span>
-                                                    @php $disabled = "disabled"; @endphp
-                                                @else
-                                                    <span style="color: #00FA9A;">Ready to be removed</span>
-                                                    @php $disabled = ""; @endphp
-                                                @endif
+                                                <span style="color: #FA8072;">Inactive!</span>
                                             </td>
                                             <td>
-                                                <form action="{{ route('userDelete') }}" method="POST"
-                                                    onsubmit="return confirm('Are you sure you want to remove this user?')">
+                                                <form action="{{ route('activateUser') }}" method="POST"
+                                                    onsubmit="return confirm('Are you sure you want to activate this user?')">
                                                     @csrf
-                                                    <button class="btn btn-danger" type="submit" name="delete"
-                                                        value="{{ $users->libraryId }}" {{ $disabled }}>
-                                                        Remove
+                                                    <button class="btn btn-warning" type="submit" name="active"
+                                                        value="{{ $users->libraryId }}">
+                                                        Activate
                                                     </button>
                                                 </form>
                                             </td>

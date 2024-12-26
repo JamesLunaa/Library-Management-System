@@ -10,6 +10,7 @@ class User extends Authenticatable
         'libraryId',
         'pass',
         'accLevel',
+        'accStatus',
     ];
 
     // Tell Laravel to use 'pass' as the password field

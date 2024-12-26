@@ -23,6 +23,7 @@ class AddUserController extends Controller
         $user->libraryId = $request->input('libId');
         $user->pass = Hash::make($request->input('libId'));
         $user->accLevel = 'user';
+        $user->accLevel = 'Active';
 
         if ($user->save()) {
             return redirect()->back()->with('success', 'User successfully registered!');

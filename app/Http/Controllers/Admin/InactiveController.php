@@ -5,12 +5,11 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
-use App\Models\BorrowedBook;
 use Illuminate\Support\Facades\DB;
 
-class RemoveUserController extends Controller
+class InactiveController extends Controller
 {
-    public function userList(Request $request) {
+    public function inactiveList(Request $request) {
         if($request->has('search') && $request->filled('libId')) {
             $libId = $request->input('libId');
 
@@ -19,7 +18,7 @@ class RemoveUserController extends Controller
             ->select('b.name', 'b.libraryId', 'bb.form')
             ->where('b.libraryId', $libId)
             ->where('b.accLevel', 'user')
-            ->where('b.accStatus', 'Active')
+            ->where('b.accStatus', 'Inactive')
             ->get();
 
         }else {
@@ -27,23 +26,20 @@ class RemoveUserController extends Controller
             ->leftJoin('borrowedbooks as bb', 'b.libraryId', '=', 'bb.libraryId')
             ->select('b.name', 'b.libraryId', 'bb.form')
             ->where('b.accLevel', 'user')
-            ->where('b.accStatus', 'Active')
+            ->where('b.accStatus', 'Inactive')
             ->limit(20)
             ->get();
         }
-        return view('admin.removeUser', ['remove' => $userList]);
+        return view('admin.inactiveList', ['remove' => $userList]);
     }
 
-    public function deleteUser(Request $request) {
+    public function activateUser(Request $request) {
         try{
-            $libraryId = $request->input('delete');
+            $libraryId = $request->input('active');
 
 
             User::where('libraryId', $libraryId)
-            ->update(['accStatus' => 'Inactive']);
-
-            BorrowedBook::where('libraryId', $libraryId)
-            ->delete();
+            ->update(['accStatus' => 'Active']);
 
             return redirect()->route('admin.removeUser');
         }catch (Exception $e) {
@@ -51,5 +47,4 @@ class RemoveUserController extends Controller
             error_log($e->getMessage());
         }
     }
-    
 }

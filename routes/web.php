@@ -14,6 +14,7 @@ use App\Http\Controllers\Admin\AddBookController;
 use App\Http\Controllers\Admin\RemoveBookController;
 use App\Http\Controllers\Admin\RemoveUserController;
 use App\Http\Controllers\Admin\SearchBookController;
+use App\Http\Controllers\Admin\InactiveController;
 
 //for users
 use App\Http\Controllers\Users\UserBookController;
@@ -58,6 +59,10 @@ Route::middleware(['auth', 'checkAccountLevel:librarian'])->group(function () {
     Route::get('/librarian/removeUserList', [RemoveUserController::class, 'userList'])->name('admin.removeUser');
     Route::post('/librarian/removeUser', [RemoveUserController::class, 'userList'])->name('userList');
     Route::post('/librarian/deleteUser', [RemoveUserController::class, 'deleteUser'])->name('userDelete');
+    Route::get('/librarian/inactiveList', [InactiveController::class, 'inactiveList'])->name('inactiveList');
+    Route::post('/librarian/inactiveList', [InactiveController::class, 'inactiveList'])->name('inactiveListSearch');
+    Route::post('/librarian/activateUser', [InactiveController::class, 'activateUser'])->name('activateUser');
+
 
     //Manage Approved
     Route::get('/librarian/approvedList', [ApprovedListController::class, 'approvedList'])->name('admin.approvedList');

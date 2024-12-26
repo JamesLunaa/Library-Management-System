@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 27, 2024 at 12:38 PM
--- Server version: 10.4.28-MariaDB
--- PHP Version: 8.2.4
+-- Generation Time: Dec 26, 2024 at 03:04 AM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -36,6 +36,18 @@ CREATE TABLE `attendance` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `attendance`
+--
+
+INSERT INTO `attendance` (`id`, `name`, `libraryId`, `date`, `created_at`, `updated_at`) VALUES
+(10, 'JAMES', '111', '2024-11-05', '2024-11-05 03:53:27', '2024-11-05 03:53:27'),
+(11, 'JAMES', '111', '2024-11-06', '2024-11-06 02:07:17', '2024-11-06 02:07:17'),
+(12, 'JAMES', '222', '2024-11-09', '2024-11-09 14:42:35', '2024-11-09 14:42:35'),
+(13, 'JAMES3', '333', '2024-12-10', '2024-12-09 23:25:06', '2024-12-09 23:25:06'),
+(14, 'JAMES', '111', '2024-12-25', '2024-12-24 17:30:15', '2024-12-24 17:30:15'),
+(15, 'JAMES', '111', '2024-12-26', '2024-12-25 18:03:23', '2024-12-25 18:03:23');
+
 -- --------------------------------------------------------
 
 --
@@ -53,6 +65,16 @@ CREATE TABLE `books` (
   `updated_at` timestamp NULL DEFAULT NULL,
   `image_path` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `books`
+--
+
+INSERT INTO `books` (`id`, `title`, `accNo`, `status`, `author`, `synopsis`, `created_at`, `updated_at`, `image_path`) VALUES
+(23, 'ABRA KADABRUHHH', '555', 'Available', 'james', 'asdasd', '2024-11-06 02:42:23', '2024-11-06 03:04:34', '1730889743-555-jpg'),
+(24, 'CRIMINAL JUSTICE TODAY: AN INTRODUCTORY TEXT FOR THE 21ST CENTURY', '123344', 'Available', 'Frank Schmalleger', 'qweqweqwe', '2024-12-09 22:45:57', '2024-12-09 22:45:57', '1733813157-123344-jpg'),
+(25, 'CRIMINAL JUSTICE TODAY: AN INTRODUCTORY TEXT FOR THE 21ST CENTURY', '2222', 'Available', 'Frank Schmalleger', 'asdasdasd', '2024-12-09 23:06:24', '2024-12-09 23:06:24', '1733814384-2222-jpg'),
+(26, 'CRIMINAL JUSTICE TODAY: AN INTRODUCTORY TEXT FOR THE 21ST CENTURY', '32323232', 'Available', 'Frank Schmalleger', 'qweqw qweqw e', '2024-12-09 23:06:33', '2024-12-09 23:06:33', '1733814393-32323232-jpg');
 
 -- --------------------------------------------------------
 
@@ -199,6 +221,7 @@ CREATE TABLE `users` (
   `libraryId` varchar(255) NOT NULL,
   `pass` varchar(255) NOT NULL,
   `accLevel` varchar(255) NOT NULL,
+  `accStatus` varchar(255) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -207,9 +230,12 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `name`, `libraryId`, `pass`, `accLevel`, `created_at`, `updated_at`) VALUES
-(2, 'librarian', '000001', '$2y$10$PYWO53BNaIFSrHqPYjBceuGKq4dup4hKF2LFhSQnHs8hKike8MtwO', 'librarian', NULL, NULL),
-(6, 'developer', '999999', '$2y$10$be5GBVbW0FDQeClOdvpDe.s2tzl2i/zDCYf.gmpQNz5q3cJCsXzmK', 'developer', NULL, NULL);
+INSERT INTO `users` (`id`, `name`, `libraryId`, `pass`, `accLevel`, `accStatus`, `created_at`, `updated_at`) VALUES
+(2, 'librarian', '000001', '$2y$10$PYWO53BNaIFSrHqPYjBceuGKq4dup4hKF2LFhSQnHs8hKike8MtwO', 'librarian', '', NULL, NULL),
+(6, 'developer', '999999', '$2y$10$be5GBVbW0FDQeClOdvpDe.s2tzl2i/zDCYf.gmpQNz5q3cJCsXzmK', 'developer', '', NULL, NULL),
+(11, 'JAMES', '111', '$2y$10$5NOh1HmBaWfmSYtaoYehuOxoTUeyTTJ85xkz.4LUjbB9OVHdGxzuC', 'user', 'Active', '2024-11-05 03:53:19', '2024-12-25 17:57:15'),
+(12, 'JAMES', '222', '$2y$10$iiF5IF0zkDEWt76pdYSu/OXY189QUEgXCz13iC6eRovbxaTygpY7e', 'user', 'Active', '2024-11-09 14:42:28', '2024-12-25 18:03:00'),
+(13, 'JAMES3', '333', '$2y$10$qmxxu8/sV4XKdm8K9L7VI.dQRyq2mIF4GJGwYg6zoQM2c5NClGkqi', 'user', 'Active', '2024-12-09 23:24:54', '2024-12-25 18:01:31');
 
 --
 -- Indexes for dumped tables
@@ -289,19 +315,19 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `attendance`
 --
 ALTER TABLE `attendance`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `books`
 --
 ALTER TABLE `books`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT for table `borrowedbooks`
 --
 ALTER TABLE `borrowedbooks`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=82;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
@@ -337,7 +363,7 @@ ALTER TABLE `suggfeed`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
