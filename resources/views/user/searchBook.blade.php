@@ -84,6 +84,7 @@
 
                                     // Determine if the buttons should be disabled based on conditions
                                     $unavailableDisabled = $books->status == 'Unavailable' ? 'disabled' : '';
+                                    $phasedOutDisabled = $books->status == 'Phased Out' ? 'disabled' : '';
                                 @endphp
 
                                 <div class='col-12 col-sm-6 col-md-4 col-lg-3 d-flex'>
@@ -93,8 +94,8 @@
                                             onerror="this.onerror=null;this.src='/icons/borrowedBook.png';">
 
                                         <div class='card-body text-white d-flex flex-column'>
-                                            <h5 class='card-title fw-bold fs-4'>{{ $books->title }}</h5><br>
-                                            <h5 class='card-title'>Acc No. {{ $books->accNo }}</h5><br>
+                                            <h5 class='card-title fw-bold fs-6'>{{ $books->title }}</h5><br>
+                                            
                                             
                                             <!-- Flexible content to push footer down -->
                                             <div class="flex-grow-1"></div>
@@ -103,19 +104,19 @@
                                         <!-- Buttons to change status (moved to the bottom) -->
                                         
                                         <div class="card-footer mt-auto" style="background-color: maroon">
+                                            <h6 class='card-title text-decoration-underline' style="color: gold;">Acc No. {{ $books->accNo }}</h6><br>
                                             <h5 class="card-title" style="{{ $statusColor }}">
                                                 {{ $books->status }}</h5>
                                             <form method="POST" action="{{ route('borrow') }}">
                                                 @csrf
                                                 <input type="hidden" name="accNo" value="{{ $books->accNo }}">
-                                                <button type="submit" name="borrow" class="btn btn-success" {{ $unavailableDisabled }}>
+                                                <button type="submit" name="borrow" class="btn btn-success" {{ $unavailableDisabled }} {{ $phasedOutDisabled }}>
                                                     Check Info
                                                 </button>
                                             </form>
                                         </div>
                                     </div>
                                 </div>
-
                             @endforeach
                             @if ($list->isEmpty())
                                 <div class="text-center fs-4 text-danger"><strong>Empty!</strong></div>
@@ -165,6 +166,8 @@
                             response.forEach(book => {
                                 const statusColor = book.book_status === 'Available' ? 'color: #00FA9A;' : 'color: gold;';
                                 const unavailableDisabled = book.book_status === 'Unavailable' ? 'disabled' : '';
+                                const phasedOutDisabled = book.book_status === 'Phased Out' ? 'disabled' : '';
+
     
                                 $('#bookListContainer').append(`
                                     <div class='col-12 col-sm-6 col-md-4 col-lg-3 d-flex'>
@@ -174,8 +177,8 @@
                                                 onerror="this.onerror=null;this.src='/icons/borrowedBook.png';">
 
                                             <div class='card-body text-white d-flex flex-column'>
-                                                <h5 class='card-title fw-bold fs-4'>${book.title}</h5><br>
-                                                <h5 class='card-title'>Acc No. ${book.accNo}</h5><br>
+                                                <h5 class='card-title fw-bold fs-6'>${book.title}</h5><br>
+                                                
                                                 
                                                 <!-- Flexible content to push footer down -->
                                                 <div class="flex-grow-1"></div>
@@ -183,12 +186,13 @@
 
                                             <!-- Buttons to change status (moved to the bottom) -->
                                             <div class="card-footer mt-auto" style="background-color: maroon">
+                                                <h6 class='card-title text-decoration-underline' style="color: gold;">Acc No. ${book.accNo}</h6><br>
                                                 <h5 class="card-title" style="${statusColor}">
                                                     ${book.book_status}</h5>
                                                 <form method="POST" action="{{ route('borrow') }}">
                                                     @csrf
                                                     <input type="hidden" name="accNo" value="${book.accNo}">
-                                                    <button type="submit" name="borrow" class="btn btn-success" ${unavailableDisabled}>
+                                                    <button type="submit" name="borrow" class="btn btn-success" ${unavailableDisabled} ${phasedOutDisabled}>
                                                         Check Info
                                                     </button>
                                                 </form>

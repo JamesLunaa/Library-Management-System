@@ -147,7 +147,8 @@ class BorrowedBooksController extends Controller
                 ->delete();
                 
                 // Step 5: Delete the entry from the books table
-                Books::where('accNo', $accessionNo)->delete();
+                Books::where('accNo', $accessionNo)
+                ->update(['status' => 'Phased Out']);
                 
                 return redirect()->back()->with('success', 'Book is lost.');
             

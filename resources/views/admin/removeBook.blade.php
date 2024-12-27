@@ -72,8 +72,11 @@
                                                 @if ($removeItem->status == 'Available')
                                                     <span style="color: #00FA9A;">Ready to be removed</span>
                                                     @php $disabled = ""; @endphp
-                                                @else
+                                                @elseif ($removeItem->status == 'Unavailable')
                                                     <span style="color: #FA8072;">Borrowed</span>
+                                                    @php $disabled = "disabled"; @endphp
+                                                @else
+                                                    <span style="color: #FA8072;">Phased Out</span>
                                                     @php $disabled = "disabled"; @endphp
                                                 @endif
                                             </td>
@@ -84,7 +87,7 @@
                                                         @csrf
                                                         <button class="btn btn-danger" type="submit" name="lost"
                                                             value="{{ $removeItem->accNo }}" {{ $disabled }}>
-                                                            Delete
+                                                            Remove
                                                         </button>
                                                     </form>
                                                 </div>

@@ -57,10 +57,11 @@ class UserBookController extends Controller
             ->where('accNo', $accNo)
             ->get();
 
+        $borrowingTime = Carbon::now()->format('h:i A'); // e.g., 02:30 PM
         }
         $todayDate = Carbon::today()->toDateString(); // Format: YYYY-MM-DD
 
-    return view('user.borrowBook', ['list' => $borrowInfo, 'todayDate' => $todayDate]);
+    return view('user.borrowBook', ['list' => $borrowInfo, 'todayDate' => $todayDate, 'borrowingTime' => $borrowingTime,]);
     }
 
     public function thisBook(Request $request) {

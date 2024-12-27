@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 26, 2024 at 03:04 AM
+-- Generation Time: Dec 27, 2024 at 02:51 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -46,7 +46,8 @@ INSERT INTO `attendance` (`id`, `name`, `libraryId`, `date`, `created_at`, `upda
 (12, 'JAMES', '222', '2024-11-09', '2024-11-09 14:42:35', '2024-11-09 14:42:35'),
 (13, 'JAMES3', '333', '2024-12-10', '2024-12-09 23:25:06', '2024-12-09 23:25:06'),
 (14, 'JAMES', '111', '2024-12-25', '2024-12-24 17:30:15', '2024-12-24 17:30:15'),
-(15, 'JAMES', '111', '2024-12-26', '2024-12-25 18:03:23', '2024-12-25 18:03:23');
+(15, 'JAMES', '111', '2024-12-26', '2024-12-25 18:03:23', '2024-12-25 18:03:23'),
+(16, 'JAMES', '111', '2024-12-27', '2024-12-26 23:49:19', '2024-12-26 23:49:19');
 
 -- --------------------------------------------------------
 
@@ -71,10 +72,10 @@ CREATE TABLE `books` (
 --
 
 INSERT INTO `books` (`id`, `title`, `accNo`, `status`, `author`, `synopsis`, `created_at`, `updated_at`, `image_path`) VALUES
-(23, 'ABRA KADABRUHHH', '555', 'Available', 'james', 'asdasd', '2024-11-06 02:42:23', '2024-11-06 03:04:34', '1730889743-555-jpg'),
-(24, 'CRIMINAL JUSTICE TODAY: AN INTRODUCTORY TEXT FOR THE 21ST CENTURY', '123344', 'Available', 'Frank Schmalleger', 'qweqweqwe', '2024-12-09 22:45:57', '2024-12-09 22:45:57', '1733813157-123344-jpg'),
-(25, 'CRIMINAL JUSTICE TODAY: AN INTRODUCTORY TEXT FOR THE 21ST CENTURY', '2222', 'Available', 'Frank Schmalleger', 'asdasdasd', '2024-12-09 23:06:24', '2024-12-09 23:06:24', '1733814384-2222-jpg'),
-(26, 'CRIMINAL JUSTICE TODAY: AN INTRODUCTORY TEXT FOR THE 21ST CENTURY', '32323232', 'Available', 'Frank Schmalleger', 'qweqw qweqw e', '2024-12-09 23:06:33', '2024-12-09 23:06:33', '1733814393-32323232-jpg');
+(23, 'ABRA KADABRUHHH', '555', 'Phased Out', 'james', 'asdasd', '2024-11-06 02:42:23', '2024-12-26 15:16:46', '1730889743-555-jpg'),
+(25, 'CRIMINAL JUSTICE TODAY: AN INTRODUCTORY TEXT FOR THE 21ST CENTURY', '2222', 'Phased Out', 'Frank Schmalleger', 'asdasdasd', '2024-12-09 23:06:24', '2024-12-26 23:56:59', '1733814384-2222-jpg'),
+(26, 'CRIMINAL JUSTICE TODAY: AN INTRODUCTORY TEXT FOR THE 21ST CENTURY', '32323232', 'Available', 'Frank Schmalleger', 'qweqw qweqw e', '2024-12-09 23:06:33', '2024-12-27 01:18:30', '1733814393-32323232-jpg'),
+(31, 'TEST', '121212', 'Available', 'asdasd', 'asdasd', '2024-12-27 01:36:50', '2024-12-27 01:36:50', '1735263410-121212-png');
 
 -- --------------------------------------------------------
 
@@ -193,6 +194,14 @@ CREATE TABLE `records` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `records`
+--
+
+INSERT INTO `records` (`id`, `name`, `libraryId`, `title`, `accNo`, `date`, `borrowedDate`, `return_date`, `remarks`, `status`, `created_at`, `updated_at`) VALUES
+(38, 'JAMES', '111', 'CRIMINAL JUSTICE TODAY: AN INTRODUCTORY TEXT FOR THE 21ST CENTURY', '123344', '2024-12-27 at 07:44 AM', '2024-12-27', '2024-12-26 23:52:26', 'Lost', 'Approved', '2024-12-26 23:52:26', '2024-12-26 23:52:26'),
+(39, 'JAMES', '111', 'CRIMINAL JUSTICE TODAY: AN INTRODUCTORY TEXT FOR THE 21ST CENTURY', '2222', '2024-12-27 at 07:56 AM', '2024-12-27', '2024-12-26 23:56:58', 'Lost', 'Approved', '2024-12-26 23:56:58', '2024-12-26 23:56:58');
 
 -- --------------------------------------------------------
 
@@ -315,19 +324,19 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `attendance`
 --
 ALTER TABLE `attendance`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `books`
 --
 ALTER TABLE `books`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT for table `borrowedbooks`
 --
 ALTER TABLE `borrowedbooks`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=82;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=85;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
@@ -351,7 +360,7 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT for table `records`
 --
 ALTER TABLE `records`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 
 --
 -- AUTO_INCREMENT for table `suggfeed`

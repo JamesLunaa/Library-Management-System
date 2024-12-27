@@ -574,3 +574,14 @@ textarea {
     }
     /* end user records */
 }
+
+table th {
+    white-space: nowrap !important; /* Prevent text wrapping */
+    text-align: center !important; /* Align header text to the center */
+    padding: 8px 12px !important; /* Add padding for better spacing */
+}
+.card-title {
+    white-space: normal; /* Allow text to wrap */
+    overflow: visible; /* Ensure text is not cut off */
+    text-overflow: unset; /* Disable ellipsis (...) */
+}

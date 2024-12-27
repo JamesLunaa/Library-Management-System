@@ -47,9 +47,9 @@
                                     value="{{ $list->isNotEmpty() ? $list->first()->accNo : '' }}" readonly>
                             </div>
                             <div class="col-md-6">
-                                <label for="inputDate" class="form-label">Date</label>
+                                <label for="inputDate" class="form-label">Date & Time</label>
                                 <input type="text" class="fs-4 form-control" id="inputDate" name="date"
-                                    value="{{ $todayDate }}" readonly>
+                                    value="{{ $todayDate }} at {{ $borrowingTime }}" readonly>
                             </div>
                             <div class="col-md-6">
                                 <label for="inputTitle" class="form-label">Title of the Book</label>

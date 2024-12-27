@@ -58,7 +58,7 @@ class RemoveBookController extends Controller
             ->delete();
 
             Books::where('accNo', $accessionNo)
-            ->delete();
+            ->update(['status' => 'Phased Out']);
 
             return redirect()->route('admin.removeBook');
         }catch (Exception $e) {
