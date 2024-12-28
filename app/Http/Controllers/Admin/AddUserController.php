@@ -16,14 +16,15 @@ class AddUserController extends Controller
         $request->validate([
             'name' => 'required|string|max:255',
             'libId' => 'required|integer|unique:users,libraryId',
+            'accLevel' => 'required|string|max:255',
         ]);
 
         $user = new User();
         $user->name = strtoupper($request->input('name'));
         $user->libraryId = $request->input('libId');
         $user->pass = Hash::make($request->input('libId'));
-        $user->accLevel = 'user';
-        $user->accLevel = 'Active';
+        $user->accLevel = $request->input('accLevel');
+        $user->accStatus = 'Active';
 
         if ($user->save()) {
             return redirect()->back()->with('success', 'User successfully registered!');

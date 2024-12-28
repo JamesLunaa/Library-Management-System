@@ -41,7 +41,7 @@
                         @if (session('success'))
                             <div class="alert alert-success">{{ session('success') }}</div>
                         @endif
-                        <form action="{{ route('admin.addUser.submit') }}" class="fs-4" id="registrationForm"
+                        <form action="{{ route('admin.addUser.submit') }}" class="fs-4 row" id="registrationForm"
                             method="post">
                             @csrf
                             <div class="mb-3">
@@ -52,14 +52,22 @@
                                     applicable), last name, and
                                     suffix (if applicable)</div>
                             </div>
-                            <div class="mb-3">
+                            <div class="col-md-6">
                                 <label for="exampleInputPassword1" class="form-label">Library
                                     I.D</label>
                                 <input type="number" name="libId" class="fs-5 form-control"
                                     placeholder="Enter ID Here" required>
                             </div>
-
-                            <button type="submit" name="submit" class="btn btn-success btn-lg">Register</button>
+                            <div class="col-md-6">
+                                <label for="exampleInputPassword1" class="form-label">User Type</label>
+                                <select name="accLevel" class="form-select fs-5" id="floatingSelect" aria-label="Floating label select example" required>
+                                    <option value="user">Student</option>
+                                    <option value="Instructor">Instructor</option>
+                                </select>
+                            </div>
+                            <div class="mt-4">
+                                <button type="submit" name="submit" class="btn btn-success btn-lg">Register</button>
+                            </div>
                         </form>
 
 

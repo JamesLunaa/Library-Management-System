@@ -16,6 +16,9 @@ use App\Http\Controllers\Admin\RemoveUserController;
 use App\Http\Controllers\Admin\SearchBookController;
 use App\Http\Controllers\Admin\InactiveController;
 
+//for instructor
+use App\Http\Controllers\Instructor\InstructorBookController;
+
 //for users
 use App\Http\Controllers\Users\UserBookController;
 use App\Http\Controllers\Users\UserPageController;
@@ -99,6 +102,45 @@ Route::middleware(['auth', 'checkAccountLevel:librarian'])->group(function () {
     Route::post('/librarian/bookListAdmin', [SearchBookController::class, 'bookListAdmin']) ->name('bookListAdmin');
     Route::post('/librarian/changeStatus', [SearchBookController::class, 'changeStatus']) ->name('changeStat');
     Route::post('/librarian/ajaxSearch', [SearchBookController::class, 'ajaxSearch'])->name('ajax.bookSearch');
+});
+
+// Instructor Routes
+Route::middleware(['auth', 'checkAccountLevel:Instructor'])->group(function () {
+    
+    //Rules
+    Route::get('/instructor/rules', function () {
+        return view('instructor.rules'); 
+    })->name('instructor.rules');
+
+    //Manage Books @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+    Route::get('/instructor/searchBook', [InstructorBookController::class, 'instructorBookList'])->name('instructor.searchBook');
+    Route::post('/instructor/instructorBookList', [InstructorBookController::class, 'instructorBookList']) ->name('instructorBookList');
+    Route::get('/instructor/instructorBorrow', [InstructorBookController::class, 'instructorBorrow'])->name('instructor.borrow');
+    Route::post('/instructor/instructorBorrow', [InstructorBookController::class, 'instructorBorrow']) ->name('instructorBorrow');
+    Route::post('/instructor/thisInstructorBook', [InstructorBookController::class, 'thisInstructorBook']) ->name('thisInstructorBook');
+    Route::get('/instructor/confirmBook', [InstructorBookController::class, 'confirmBook'])->name('confirmBook');
+    Route::post('/instructor/instructorAjaxSearch', [InstructorBookController::class, 'instructorAjaxSearch'])->name('instructor.ajax.bookSearch');
+
+    //Manage Request
+    Route::get('/instructor/requestStatus', [RequestController::class, 'requestList'])->name('user.requestStatus');
+    Route::post('/instructor/cancelUserRequest', [RequestController::class, 'cancel'])->name('cancelUserRequest');
+
+    //Manage Password
+    Route::get('/instructor/changePass', [UserPageController::class, 'changePass'])->name('user.changePass');
+    Route::post('/instructor/changePass', [ChangePasswordController::class, 'changePassword'])->name('user.password.update');
+    
+    //Manage Borrowed
+    Route::get('/instructor/borrowedBooks', [UserBorrowedController::class, 'borrowedBook'])->name('user.borrowedBooks');
+    
+    //Manage Record
+    Route::get('/instructor/userRecords', [UserRecordController::class, 'userRecord'])->name('user.records');
+    Route::post('/instructor/userRecords', [UserRecordController::class, 'userRecord'])->name('userRecords');
+
+    //Submit Feedback
+    Route::get('/instructor/feedback', [UserPageController::class, 'feedback'])->name('user.feedback');
+    Route::post('/instructor/feedback', [FeedbackController::class, 'sendFeedback'])->name('userFeedback');
+
+    
 });
 
 //User Routes

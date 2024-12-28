@@ -55,6 +55,8 @@ class LoginController extends Controller
                 return redirect()->route('developer.feedback');
             case 'librarian':
                 return redirect()->route('admin.searchBook');
+            case 'Instructor':
+                return redirect()->route('instructor.rules');
             default:
                 return redirect()->back()->withErrors(['login' => 'Unknown account level. Please contact the administrator.']);
         }

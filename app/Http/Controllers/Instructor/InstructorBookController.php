@@ -1,0 +1,120 @@
+<?php
+
+namespace App\Http\Controllers\Instructor;
+
+use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
+use App\Models\Books;
+use App\Models\BorrowedBook;
+use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
+use Exception;
+
+class InstructorBookController extends Controller
+{
+    public function instructorAjaxSearch(Request $request){
+        $info = $request->input('info');
+        $bookList = DB::table('books as b')
+            ->select('b.title', 'b.accNo', 'b.status as book_status', 'b.image_path')
+            ->where('b.accNo', 'LIKE', '%' . $info . '%')
+            ->orWhere('b.title', 'LIKE', '%' . $info . '%')
+            ->distinct()
+            ->orderBy('b.title', 'ASC')
+            ->limit(10)
+            ->get();
+    
+        return response()->json($bookList);
+    }
+
+    public function instructorBookList(Request $request) {
+        if ($request->has('search') && $request->filled('info')) {
+            $info = $request->input('info');
+            
+            $bookList = DB::table('books')
+                ->select('title', 'accNo', 'status' , 'image_path')
+                ->where('accNo', $info)
+                ->orWhere('title', $info)
+                ->orWhere(DB::raw('LOWER(title)'), 'LIKE', "%".strtolower($info)."%")
+                ->orderBy('title', 'ASC')
+                ->limit(10)
+                ->get();
+        }
+        else {
+            $bookList = DB::table('books')
+                ->select('title', 'accNo', 'status', 'image_path')
+                ->orderBy('title', 'ASC')
+                ->get();
+        }
+        return view('instructor.searchBook', ['list' => $bookList]);
+    }
+
+    public function instructorBorrow(Request $request) {
+        if ($request->has('borrow') && $request->filled('accNo')) {
+            $accNo = $request->input('accNo');
+
+            $borrowInfo = DB::table('books')
+            ->select('title', 'accNo', 'status', 'author', 'synopsis')
+            ->where('accNo', $accNo)
+            ->get();
+
+        $borrowingTime = Carbon::now()->format('h:i A'); // e.g., 02:30 PM
+        }
+        $todayDate = Carbon::today()->toDateString(); // Format: YYYY-MM-DD
+
+    return view('instructor.borrowBook', ['list' => $borrowInfo, 'todayDate' => $todayDate, 'borrowingTime' => $borrowingTime,]);
+    }
+
+    public function thisInstructorBook(Request $request) {
+        $name = $request->input('name');
+        $userId = $request->input('libraryId');
+        $accNo = $request->input('accNo');
+        $date = $request->input('date');
+        $title = $request->input('title');
+        $status = 'Pending';
+        $form = 'Unclaimed';
+
+        //Check Approved
+        $check = DB::table('borrowedbooks')
+        ->where('libraryId', $userId)
+        ->where('form', 'Claimed')
+        ->where('status', 'Approved')
+        ->exists();
+
+        $availCheck = DB::table('books')
+        ->where('accNo', $accNo)
+        ->where('status', 'Unavailable')
+        ->exists();
+
+        if($availCheck) {
+            return redirect()->route('instructor.searchBook')->with('error', 'Book is currently unavailable');
+        }
+
+        if($check) {
+            return redirect()->route('instructor.searchBook')->with('error', 'You currently have a borrowed book or an approved request');
+        }else {
+            $check2 = DB::table('borrowedbooks')
+            ->where('libraryId', $userId)
+            ->where('accNo', $accNo)
+            ->where('status', 'Pending')
+            ->exists();
+
+            if($check2){
+                return redirect()->route('instructor.searchBook')->with('error', 'You have already requested to borrow this book');
+            }else {
+                BorrowedBook::create([
+                    'name' => $name,
+                    'libraryId' => $userId,
+                    'title' => $title,
+                    'date' => $date,
+                    'accNo' => $accNo,
+                    'status' => $status,
+                    'form' => $form
+                ]);
+                return redirect()->route('instructor.searchBook')->with('success', 'Request is now Pending.');
+
+            }
+        }
+
+    }
+
+}

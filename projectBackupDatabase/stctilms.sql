@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 27, 2024 at 02:51 AM
+-- Generation Time: Dec 28, 2024 at 02:35 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -47,7 +47,10 @@ INSERT INTO `attendance` (`id`, `name`, `libraryId`, `date`, `created_at`, `upda
 (13, 'JAMES3', '333', '2024-12-10', '2024-12-09 23:25:06', '2024-12-09 23:25:06'),
 (14, 'JAMES', '111', '2024-12-25', '2024-12-24 17:30:15', '2024-12-24 17:30:15'),
 (15, 'JAMES', '111', '2024-12-26', '2024-12-25 18:03:23', '2024-12-25 18:03:23'),
-(16, 'JAMES', '111', '2024-12-27', '2024-12-26 23:49:19', '2024-12-26 23:49:19');
+(16, 'JAMES', '111', '2024-12-27', '2024-12-26 23:49:19', '2024-12-26 23:49:19'),
+(17, 'STUDENT', '444', '2024-12-28', '2024-12-27 23:30:45', '2024-12-27 23:30:45'),
+(18, 'INSTRUCTOR', '555', '2024-12-28', '2024-12-27 23:54:19', '2024-12-27 23:54:19'),
+(19, 'JAMES', '111', '2024-12-28', '2024-12-28 00:56:56', '2024-12-28 00:56:56');
 
 -- --------------------------------------------------------
 
@@ -99,6 +102,13 @@ CREATE TABLE `borrowedbooks` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `borrowedbooks`
+--
+
+INSERT INTO `borrowedbooks` (`id`, `name`, `libraryId`, `title`, `date`, `accNo`, `status`, `borrowedDate`, `duration`, `delay`, `form`, `remarks`, `created_at`, `updated_at`) VALUES
+(85, 'JAMES', '111', 'CRIMINAL JUSTICE TODAY: AN INTRODUCTORY TEXT FOR THE 21ST CENTURY', '2024-12-28 at 08:56 AM', '32323232', 'Pending', NULL, NULL, NULL, 'Unclaimed', NULL, '2024-12-28 00:57:12', '2024-12-28 00:57:12');
 
 -- --------------------------------------------------------
 
@@ -243,8 +253,8 @@ INSERT INTO `users` (`id`, `name`, `libraryId`, `pass`, `accLevel`, `accStatus`,
 (2, 'librarian', '000001', '$2y$10$PYWO53BNaIFSrHqPYjBceuGKq4dup4hKF2LFhSQnHs8hKike8MtwO', 'librarian', '', NULL, NULL),
 (6, 'developer', '999999', '$2y$10$be5GBVbW0FDQeClOdvpDe.s2tzl2i/zDCYf.gmpQNz5q3cJCsXzmK', 'developer', '', NULL, NULL),
 (11, 'JAMES', '111', '$2y$10$5NOh1HmBaWfmSYtaoYehuOxoTUeyTTJ85xkz.4LUjbB9OVHdGxzuC', 'user', 'Active', '2024-11-05 03:53:19', '2024-12-25 17:57:15'),
-(12, 'JAMES', '222', '$2y$10$iiF5IF0zkDEWt76pdYSu/OXY189QUEgXCz13iC6eRovbxaTygpY7e', 'user', 'Active', '2024-11-09 14:42:28', '2024-12-25 18:03:00'),
-(13, 'JAMES3', '333', '$2y$10$qmxxu8/sV4XKdm8K9L7VI.dQRyq2mIF4GJGwYg6zoQM2c5NClGkqi', 'user', 'Active', '2024-12-09 23:24:54', '2024-12-25 18:01:31');
+(14, 'INSTRUCTOR', '555', '$2y$10$AawYLHgvRkmwGy7z6h9zhOY.r9.cCuGCib61rN0Hw1kEE2ojJmhvy', 'Instructor', 'Active', '2024-12-27 23:29:24', '2024-12-27 23:29:24'),
+(16, 'STUDENT', '444', '$2y$10$wkQTXsTadeSzEWTP7Or8R.rryHqWgxKZhjjmAcaAz6oi6aSTP7okK', 'user', 'Active', '2024-12-27 23:30:30', '2024-12-27 23:30:30');
 
 --
 -- Indexes for dumped tables
@@ -324,7 +334,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `attendance`
 --
 ALTER TABLE `attendance`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `books`
@@ -336,7 +346,7 @@ ALTER TABLE `books`
 -- AUTO_INCREMENT for table `borrowedbooks`
 --
 ALTER TABLE `borrowedbooks`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=85;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=86;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
@@ -372,7 +382,7 @@ ALTER TABLE `suggfeed`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
