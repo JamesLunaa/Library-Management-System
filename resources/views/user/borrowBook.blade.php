@@ -51,6 +51,10 @@
                                 <input type="text" class="fs-4 form-control" id="inputDate" name="date"
                                     value="{{ $todayDate }} at {{ $borrowingTime }}" readonly>
                             </div>
+                            <div class="col-md-max text-center">
+                                <label for="duration" class="form-label">Borrow Duration (in day/s)</label>
+                                <input type="number" class="fs-4 form-control text-center" id="duration" name="duration" value="1" readonly>
+                            </div>
                             <div class="col-md-6">
                                 <label for="inputTitle" class="form-label">Title of the Book</label>
                                 <input type="text" class="fs-4 form-control" id="inputTitle" name="title"

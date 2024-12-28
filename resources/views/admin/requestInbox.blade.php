@@ -57,6 +57,7 @@
                                         <th scope="col">Title</th>
                                         <th scope="col">Acc No.</th>
                                         <th scope="col">Request Date</th>
+                                        <th scope="col">Duration</th>
                                         <th scope="col">Action</th>
                                     </tr>
                                 </thead>
@@ -68,6 +69,7 @@
                                             <td>{{ $requests->title }}</td>
                                             <td>{{ $requests->accNo }}</td>
                                             <td>{{ $requests->date }}</td>
+                                            <td>{{ $requests->duration }}</td>
                                             <td>
                                                 <div class="d-flex justify-content-center gap-2">
                                                     <form action="{{ route('approveRequest') }}" method="post"

@@ -60,7 +60,7 @@ class RequestInboxController extends Controller
             })
            
             ->orderBy('bb.id', 'ASC')
-            ->get(['bb.id', 'bb.name', 'bb.libraryId', 'bb.title', 'bb.date', 'bb.accNo']);
+            ->get(['bb.id', 'bb.name', 'bb.libraryId', 'bb.title', 'bb.date', 'bb.accNo', 'bb.duration']);
         }
         
         return view('admin.requestInbox', ['requestList' => $requestInbox]);

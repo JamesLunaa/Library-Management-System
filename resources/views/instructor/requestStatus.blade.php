@@ -28,7 +28,7 @@
                         <h1>Request Status</h1>
                     </div>
                     <div class="text-center">
-                        <a id="remove-reload" href="{{ route('user.requestStatus') }}"><button type="submit"
+                        <a id="remove-reload" href="{{ route('instructor.requestStatus') }}"><button type="submit"
                                 class="btn btn-secondary fs-5">Reload</button></a>
                     </div>
                     @if (session('success'))
@@ -98,7 +98,7 @@
                                             <td>{{ $request->accNo }}</td>
                                             <td style="{{ $statusColor }}">{{ $request->status }}</td>
                                             <td>
-                                                <form action="{{ route('cancelUserRequest') }}" method="POST"
+                                                <form action="{{ route('cancelInstructorRequest') }}" method="POST"
                                                     onsubmit="return confirm('Are you sure you want to cancel the request?')">
                                                     @csrf
                                                     <input type="hidden" name="id" value="{{ $request->id }}">

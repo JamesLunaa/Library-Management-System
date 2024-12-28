@@ -24,7 +24,7 @@ class BorrowedBooksController extends Controller
             $info = $request->input('info');
 
             $borrowedList = DB::table('borrowedbooks')
-            ->select('id', 'name', 'libraryId', 'title', 'date', 'borrowedDate', 'accNo', 'delay')
+            ->select('id', 'name', 'libraryId', 'title', 'date', 'borrowedDate', 'accNo', 'duration', 'delay')
             ->where('form', 'Claimed')
             ->where('libraryId', $info)
             ->orwhere('accNo', $info)
@@ -34,7 +34,7 @@ class BorrowedBooksController extends Controller
             ->get();
         }else {
             $borrowedList = DB::table('borrowedbooks')
-            ->select('id', 'name', 'libraryId', 'title', 'date', 'borrowedDate', 'accNo', 'delay')
+            ->select('id', 'name', 'libraryId', 'title', 'date', 'borrowedDate', 'accNo', 'duration', 'delay')
             ->where('form', 'Claimed')
             
             ->orderBy('date', 'DESC')

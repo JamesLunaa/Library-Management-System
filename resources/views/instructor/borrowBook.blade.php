@@ -29,7 +29,7 @@
                     </div>
                     <div class="m-5">
 
-                        <form action="{{ route('thisBook') }}" class="row text-dark fs-4" method="post">
+                        <form action="{{ route('thisInstructorBook') }}" class="row text-dark fs-4" method="post">
                             @csrf
                             <div class="col-md-6">
                                 <label for="inputName" class="form-label">Name</label>
@@ -50,6 +50,10 @@
                                 <label for="inputDate" class="form-label">Date & Time</label>
                                 <input type="text" class="fs-4 form-control" id="inputDate" name="date"
                                     value="{{ $todayDate }} at {{ $borrowingTime }}" readonly>
+                            </div>
+                            <div class="col-md-max text-center">
+                                <label for="duration" class="form-label">Borrow Duration (in day/s)</label>
+                                <input type="number" class="fs-4 form-control text-center" id="duration" name="duration" required>
                             </div>
                             <div class="col-md-6">
                                 <label for="inputTitle" class="form-label">Title of the Book</label>

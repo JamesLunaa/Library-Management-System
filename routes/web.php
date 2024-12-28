@@ -18,6 +18,7 @@ use App\Http\Controllers\Admin\InactiveController;
 
 //for instructor
 use App\Http\Controllers\Instructor\InstructorBookController;
+use App\Http\Controllers\Instructor\InstructorRequestController;
 
 //for users
 use App\Http\Controllers\Users\UserBookController;
@@ -112,7 +113,7 @@ Route::middleware(['auth', 'checkAccountLevel:Instructor'])->group(function () {
         return view('instructor.rules'); 
     })->name('instructor.rules');
 
-    //Manage Books @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+    //Manage Books 
     Route::get('/instructor/searchBook', [InstructorBookController::class, 'instructorBookList'])->name('instructor.searchBook');
     Route::post('/instructor/instructorBookList', [InstructorBookController::class, 'instructorBookList']) ->name('instructorBookList');
     Route::get('/instructor/instructorBorrow', [InstructorBookController::class, 'instructorBorrow'])->name('instructor.borrow');
@@ -122,10 +123,10 @@ Route::middleware(['auth', 'checkAccountLevel:Instructor'])->group(function () {
     Route::post('/instructor/instructorAjaxSearch', [InstructorBookController::class, 'instructorAjaxSearch'])->name('instructor.ajax.bookSearch');
 
     //Manage Request
-    Route::get('/instructor/requestStatus', [RequestController::class, 'requestList'])->name('user.requestStatus');
-    Route::post('/instructor/cancelUserRequest', [RequestController::class, 'cancel'])->name('cancelUserRequest');
+    Route::get('/instructor/requestStatus', [InstructorRequestController::class, 'requestList'])->name('instructor.requestStatus');
+    Route::post('/instructor/cancelUserRequest', [InstructorRequestController::class, 'cancel'])->name('cancelInstructorRequest');
 
-    //Manage Password
+    //Manage Password @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
     Route::get('/instructor/changePass', [UserPageController::class, 'changePass'])->name('user.changePass');
     Route::post('/instructor/changePass', [ChangePasswordController::class, 'changePassword'])->name('user.password.update');
     

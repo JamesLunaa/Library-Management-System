@@ -69,6 +69,7 @@ class UserBookController extends Controller
         $userId = $request->input('libraryId');
         $accNo = $request->input('accNo');
         $date = $request->input('date');
+        $duration = $request->input('duration');
         $title = $request->input('title');
         $status = 'Pending';
         $form = 'Unclaimed';
@@ -106,6 +107,7 @@ class UserBookController extends Controller
                     'libraryId' => $userId,
                     'title' => $title,
                     'date' => $date,
+                    'duration' => $duration,
                     'accNo' => $accNo,
                     'status' => $status,
                     'form' => $form

@@ -23,6 +23,7 @@ class ApprovedListController extends Controller
                 ->where('form', 'Unclaimed')
                 ->where('status', 'Approved')
                 ->where('libraryId', $info)
+                ->orWhere('name', $info)
                 ->whereNotIn('libraryId', function ($query) {
                     $query->select('libraryId')
                           ->from('borrowedbooks')
@@ -76,8 +77,7 @@ class ApprovedListController extends Controller
                 ->where('id', $id)
                 ->update([
                     'form' => 'Claimed',
-                    'borrowedDate' => now(),
-                    'duration' => 1
+                    'borrowedDate' => now()
                 ]);
 
             // Update books table to set status to Unavailable

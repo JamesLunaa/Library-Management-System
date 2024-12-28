@@ -57,6 +57,7 @@
                                         <th scope="col">Acc No.</th>
                                         <th scope="col">Request Date</th>
                                         <th scope="col">Borrowed Date</th>
+                                        <th scope="col">Duration</th>
                                         <th scope="col">Delayed</th>
                                         <th scope="col">Remarks</th>
                                     </tr>
@@ -70,6 +71,7 @@
                                             <td>{{ $borrow->accNo }}</td>
                                             <td>{{ $borrow->date }}</td>
                                             <td>{{ $borrow->borrowedDate }}</td>
+                                            <td>{{ $borrow->duration }}</td>
                                             <td>{{ $borrow->delay }} Day/s</td>
                                             <td>
                                                 <div class="d-flex justify-content-center gap-2">
