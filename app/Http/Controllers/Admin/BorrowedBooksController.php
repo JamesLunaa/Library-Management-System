@@ -17,7 +17,7 @@ class BorrowedBooksController extends Controller
         DB::table('borrowedbooks')
         ->where('form', 'Claimed')
         ->update([
-            'delay' => DB::raw('GREATEST(DATEDIFF(CURDATE(), borrowedDate), 0)')
+            'delay' => DB::raw('GREATEST(DATEDIFF(CURDATE(), borrowedDate) - duration, 0)')
         ]);
 
         if($request->has('search') && $request->filled('info')) {

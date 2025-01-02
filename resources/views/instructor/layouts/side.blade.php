@@ -45,8 +45,8 @@
                 </a>
             </li>
             <li>
-                <a href="{{ route('user.borrowedBooks') }}"
-                    class="nav-link {{ Route::currentRouteName() == 'user.borrowedBooks' ? 'active' : '' }} text-white">
+                <a href="{{ route('instructor.borrowedBooks') }}"
+                    class="nav-link {{ Route::currentRouteName() == 'instructor.borrowedBooks' ? 'active' : '' }} text-white">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
                         class="bi bi-send" viewBox="0 0 16 16">
                         <path

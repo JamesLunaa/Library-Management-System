@@ -19,6 +19,8 @@ use App\Http\Controllers\Admin\InactiveController;
 //for instructor
 use App\Http\Controllers\Instructor\InstructorBookController;
 use App\Http\Controllers\Instructor\InstructorRequestController;
+use App\Http\Controllers\Instructor\InstructorPageController;
+use App\Http\Controllers\Instructor\InstructorBorrowedController;
 
 //for users
 use App\Http\Controllers\Users\UserBookController;
@@ -126,18 +128,18 @@ Route::middleware(['auth', 'checkAccountLevel:Instructor'])->group(function () {
     Route::get('/instructor/requestStatus', [InstructorRequestController::class, 'requestList'])->name('instructor.requestStatus');
     Route::post('/instructor/cancelUserRequest', [InstructorRequestController::class, 'cancel'])->name('cancelInstructorRequest');
 
-    //Manage Password @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-    Route::get('/instructor/changePass', [UserPageController::class, 'changePass'])->name('user.changePass');
-    Route::post('/instructor/changePass', [ChangePasswordController::class, 'changePassword'])->name('user.password.update');
+    //Manage Password 
+    Route::get('/instructor/changePass', [InstructorPageController::class, 'changePass'])->name('instructor.changePass');
+    Route::post('/instructor/changePass', [ChangePasswordController::class, 'changePassword'])->name('instructor.password.update');
     
-    //Manage Borrowed
-    Route::get('/instructor/borrowedBooks', [UserBorrowedController::class, 'borrowedBook'])->name('user.borrowedBooks');
+    //Manage Borrowed 
+    Route::get('/instructor/borrowedBooks', [InstructorBorrowedController::class, 'borrowedBook'])->name('instructor.borrowedBooks');
     
-    //Manage Record
+    //Manage Record @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
     Route::get('/instructor/userRecords', [UserRecordController::class, 'userRecord'])->name('user.records');
     Route::post('/instructor/userRecords', [UserRecordController::class, 'userRecord'])->name('userRecords');
 
-    //Submit Feedback
+    //Submit Feedback @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
     Route::get('/instructor/feedback', [UserPageController::class, 'feedback'])->name('user.feedback');
     Route::post('/instructor/feedback', [FeedbackController::class, 'sendFeedback'])->name('userFeedback');
 

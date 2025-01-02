@@ -6,7 +6,7 @@
             <strong class="fs-4">{{ session('user') }}</strong>
         </a>
         <ul class="dropdown-menu dropdown-menu-white text-small shadow" aria-labelledby="dropdownUser1">
-            <li><a class="dropdown-item" href="{{ route('user.changePass') }}">Change Password</a></li>
+            <li><a class="dropdown-item" href="{{ route('instructor.changePass') }}">Change Password</a></li>
             <li>
                 <hr class="dropdown-divider">
             </li>

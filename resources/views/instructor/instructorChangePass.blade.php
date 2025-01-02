@@ -28,7 +28,7 @@
                         <h1>Change Pass</h1>
                     </div>
                     <div class="m-5">
-                        <form action="{{ route('user.password.update') }}" method="post" class="fs-4"
+                        <form action="{{ route('instructor.password.update') }}" method="post" class="fs-4"
                             id="registrationForm" onsubmit="return validatePasswords()">
                             @csrf
                             <div class="mb-3">

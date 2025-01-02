@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\Users;
+namespace App\Http\Controllers\Instructor;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Exception;
 
-class UserBorrowedController extends Controller
+class InstructorBorrowedController extends Controller
 {
     public function borrowedBook(Request $request){
         DB::table('borrowedbooks')
@@ -24,6 +24,6 @@ class UserBorrowedController extends Controller
         ->where('form', 'Claimed')
         ->get();
 
-        return view('user.userBorrowed', ['userBorrowed' => $borrowed]);
+        return view('instructor.instructorBorrowed', ['userBorrowed' => $borrowed]);
     }
 }

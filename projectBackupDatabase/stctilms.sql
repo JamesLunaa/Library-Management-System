@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 28, 2024 at 02:35 AM
+-- Generation Time: Jan 02, 2025 at 02:36 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -50,7 +50,9 @@ INSERT INTO `attendance` (`id`, `name`, `libraryId`, `date`, `created_at`, `upda
 (16, 'JAMES', '111', '2024-12-27', '2024-12-26 23:49:19', '2024-12-26 23:49:19'),
 (17, 'STUDENT', '444', '2024-12-28', '2024-12-27 23:30:45', '2024-12-27 23:30:45'),
 (18, 'INSTRUCTOR', '555', '2024-12-28', '2024-12-27 23:54:19', '2024-12-27 23:54:19'),
-(19, 'JAMES', '111', '2024-12-28', '2024-12-28 00:56:56', '2024-12-28 00:56:56');
+(19, 'JAMES', '111', '2024-12-28', '2024-12-28 00:56:56', '2024-12-28 00:56:56'),
+(20, 'JAMES', '111', '2024-12-29', '2024-12-28 23:16:05', '2024-12-28 23:16:05'),
+(21, 'JAMES', '111', '2025-01-02', '2025-01-02 01:00:47', '2025-01-02 01:00:47');
 
 -- --------------------------------------------------------
 
@@ -77,8 +79,8 @@ CREATE TABLE `books` (
 INSERT INTO `books` (`id`, `title`, `accNo`, `status`, `author`, `synopsis`, `created_at`, `updated_at`, `image_path`) VALUES
 (23, 'ABRA KADABRUHHH', '555', 'Phased Out', 'james', 'asdasd', '2024-11-06 02:42:23', '2024-12-26 15:16:46', '1730889743-555-jpg'),
 (25, 'CRIMINAL JUSTICE TODAY: AN INTRODUCTORY TEXT FOR THE 21ST CENTURY', '2222', 'Phased Out', 'Frank Schmalleger', 'asdasdasd', '2024-12-09 23:06:24', '2024-12-26 23:56:59', '1733814384-2222-jpg'),
-(26, 'CRIMINAL JUSTICE TODAY: AN INTRODUCTORY TEXT FOR THE 21ST CENTURY', '32323232', 'Available', 'Frank Schmalleger', 'qweqw qweqw e', '2024-12-09 23:06:33', '2024-12-27 01:18:30', '1733814393-32323232-jpg'),
-(31, 'TEST', '121212', 'Available', 'asdasd', 'asdasd', '2024-12-27 01:36:50', '2024-12-27 01:36:50', '1735263410-121212-png');
+(26, 'CRIMINAL JUSTICE TODAY: AN INTRODUCTORY TEXT FOR THE 21ST CENTURY', '32323232', 'Unavailable', 'Frank Schmalleger', 'qweqw qweqw e', '2024-12-09 23:06:33', '2024-12-27 01:18:30', '1733814393-32323232-jpg'),
+(31, 'TEST', '121212', 'Unavailable', 'asdasd', 'asdasd', '2024-12-27 01:36:50', '2024-12-27 01:36:50', '1735263410-121212-png');
 
 -- --------------------------------------------------------
 
@@ -108,7 +110,8 @@ CREATE TABLE `borrowedbooks` (
 --
 
 INSERT INTO `borrowedbooks` (`id`, `name`, `libraryId`, `title`, `date`, `accNo`, `status`, `borrowedDate`, `duration`, `delay`, `form`, `remarks`, `created_at`, `updated_at`) VALUES
-(85, 'JAMES', '111', 'CRIMINAL JUSTICE TODAY: AN INTRODUCTORY TEXT FOR THE 21ST CENTURY', '2024-12-28 at 08:56 AM', '32323232', 'Pending', NULL, NULL, NULL, 'Unclaimed', NULL, '2024-12-28 00:57:12', '2024-12-28 00:57:12');
+(87, 'INSTRUCTOR', '555', 'CRIMINAL JUSTICE TODAY: AN INTRODUCTORY TEXT FOR THE 21ST CENTURY', '2024-12-29 at 07:06 AM', '32323232', 'Approved', '2024-12-29', 3, 1, 'Claimed', NULL, '2024-12-28 23:06:10', '2024-12-28 23:20:48'),
+(89, 'JAMES', '111', 'TEST', '2024-12-29 at 07:17 AM', '121212', 'Approved', '2024-12-29', 1, 3, 'Claimed', NULL, '2024-12-28 23:17:23', '2024-12-28 23:20:50');
 
 -- --------------------------------------------------------
 
@@ -253,7 +256,7 @@ INSERT INTO `users` (`id`, `name`, `libraryId`, `pass`, `accLevel`, `accStatus`,
 (2, 'librarian', '000001', '$2y$10$PYWO53BNaIFSrHqPYjBceuGKq4dup4hKF2LFhSQnHs8hKike8MtwO', 'librarian', '', NULL, NULL),
 (6, 'developer', '999999', '$2y$10$be5GBVbW0FDQeClOdvpDe.s2tzl2i/zDCYf.gmpQNz5q3cJCsXzmK', 'developer', '', NULL, NULL),
 (11, 'JAMES', '111', '$2y$10$5NOh1HmBaWfmSYtaoYehuOxoTUeyTTJ85xkz.4LUjbB9OVHdGxzuC', 'user', 'Active', '2024-11-05 03:53:19', '2024-12-25 17:57:15'),
-(14, 'INSTRUCTOR', '555', '$2y$10$AawYLHgvRkmwGy7z6h9zhOY.r9.cCuGCib61rN0Hw1kEE2ojJmhvy', 'Instructor', 'Active', '2024-12-27 23:29:24', '2024-12-27 23:29:24'),
+(14, 'INSTRUCTOR', '555', '$2y$10$i5jAzqdzd079LhdNRO446ef8pELM7DOQkB/l5V5eP/t5jxwVC/jOi', 'Instructor', 'Active', '2024-12-27 23:29:24', '2025-01-02 01:23:28'),
 (16, 'STUDENT', '444', '$2y$10$wkQTXsTadeSzEWTP7Or8R.rryHqWgxKZhjjmAcaAz6oi6aSTP7okK', 'user', 'Active', '2024-12-27 23:30:30', '2024-12-27 23:30:30');
 
 --
@@ -334,7 +337,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `attendance`
 --
 ALTER TABLE `attendance`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `books`
@@ -346,7 +349,7 @@ ALTER TABLE `books`
 -- AUTO_INCREMENT for table `borrowedbooks`
 --
 ALTER TABLE `borrowedbooks`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=86;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=90;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`

@@ -27,7 +27,7 @@
                         <h1>Books in Possession</h1>
                     </div>
                     <div class="text-center">
-                        <a id="remove-reload" href="{{ route('user.borrowedBooks') }}"><button type="submit"
+                        <a id="remove-reload" href="{{ route('instructor.borrowedBooks') }}"><button type="submit"
                                 class="btn btn-secondary fs-5">Reload</button></a>
                     </div>
 
