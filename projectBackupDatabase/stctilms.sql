@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 02, 2025 at 02:36 AM
+-- Generation Time: Jan 03, 2025 at 12:40 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -49,10 +49,10 @@ INSERT INTO `attendance` (`id`, `name`, `libraryId`, `date`, `created_at`, `upda
 (15, 'JAMES', '111', '2024-12-26', '2024-12-25 18:03:23', '2024-12-25 18:03:23'),
 (16, 'JAMES', '111', '2024-12-27', '2024-12-26 23:49:19', '2024-12-26 23:49:19'),
 (17, 'STUDENT', '444', '2024-12-28', '2024-12-27 23:30:45', '2024-12-27 23:30:45'),
-(18, 'INSTRUCTOR', '555', '2024-12-28', '2024-12-27 23:54:19', '2024-12-27 23:54:19'),
 (19, 'JAMES', '111', '2024-12-28', '2024-12-28 00:56:56', '2024-12-28 00:56:56'),
 (20, 'JAMES', '111', '2024-12-29', '2024-12-28 23:16:05', '2024-12-28 23:16:05'),
-(21, 'JAMES', '111', '2025-01-02', '2025-01-02 01:00:47', '2025-01-02 01:00:47');
+(21, 'JAMES', '111', '2025-01-02', '2025-01-02 01:00:47', '2025-01-02 01:00:47'),
+(22, 'JAMES', '111', '2025-01-03', '2025-01-02 23:17:03', '2025-01-02 23:17:03');
 
 -- --------------------------------------------------------
 
@@ -79,8 +79,8 @@ CREATE TABLE `books` (
 INSERT INTO `books` (`id`, `title`, `accNo`, `status`, `author`, `synopsis`, `created_at`, `updated_at`, `image_path`) VALUES
 (23, 'ABRA KADABRUHHH', '555', 'Phased Out', 'james', 'asdasd', '2024-11-06 02:42:23', '2024-12-26 15:16:46', '1730889743-555-jpg'),
 (25, 'CRIMINAL JUSTICE TODAY: AN INTRODUCTORY TEXT FOR THE 21ST CENTURY', '2222', 'Phased Out', 'Frank Schmalleger', 'asdasdasd', '2024-12-09 23:06:24', '2024-12-26 23:56:59', '1733814384-2222-jpg'),
-(26, 'CRIMINAL JUSTICE TODAY: AN INTRODUCTORY TEXT FOR THE 21ST CENTURY', '32323232', 'Unavailable', 'Frank Schmalleger', 'qweqw qweqw e', '2024-12-09 23:06:33', '2024-12-27 01:18:30', '1733814393-32323232-jpg'),
-(31, 'TEST', '121212', 'Unavailable', 'asdasd', 'asdasd', '2024-12-27 01:36:50', '2024-12-27 01:36:50', '1735263410-121212-png');
+(26, 'CRIMINAL JUSTICE TODAY: AN INTRODUCTORY TEXT FOR THE 21ST CENTURY', '32323232', 'Available', 'Frank Schmalleger', 'qweqw qweqw e', '2024-12-09 23:06:33', '2025-01-02 23:17:28', '1733814393-32323232-jpg'),
+(31, 'TEST', '121212', 'Available', 'asdasd', 'asdasd', '2024-12-27 01:36:50', '2025-01-02 23:17:27', '1735263410-121212-png');
 
 -- --------------------------------------------------------
 
@@ -104,14 +104,6 @@ CREATE TABLE `borrowedbooks` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `borrowedbooks`
---
-
-INSERT INTO `borrowedbooks` (`id`, `name`, `libraryId`, `title`, `date`, `accNo`, `status`, `borrowedDate`, `duration`, `delay`, `form`, `remarks`, `created_at`, `updated_at`) VALUES
-(87, 'INSTRUCTOR', '555', 'CRIMINAL JUSTICE TODAY: AN INTRODUCTORY TEXT FOR THE 21ST CENTURY', '2024-12-29 at 07:06 AM', '32323232', 'Approved', '2024-12-29', 3, 1, 'Claimed', NULL, '2024-12-28 23:06:10', '2024-12-28 23:20:48'),
-(89, 'JAMES', '111', 'TEST', '2024-12-29 at 07:17 AM', '121212', 'Approved', '2024-12-29', 1, 3, 'Claimed', NULL, '2024-12-28 23:17:23', '2024-12-28 23:20:50');
 
 -- --------------------------------------------------------
 
@@ -214,7 +206,9 @@ CREATE TABLE `records` (
 
 INSERT INTO `records` (`id`, `name`, `libraryId`, `title`, `accNo`, `date`, `borrowedDate`, `return_date`, `remarks`, `status`, `created_at`, `updated_at`) VALUES
 (38, 'JAMES', '111', 'CRIMINAL JUSTICE TODAY: AN INTRODUCTORY TEXT FOR THE 21ST CENTURY', '123344', '2024-12-27 at 07:44 AM', '2024-12-27', '2024-12-26 23:52:26', 'Lost', 'Approved', '2024-12-26 23:52:26', '2024-12-26 23:52:26'),
-(39, 'JAMES', '111', 'CRIMINAL JUSTICE TODAY: AN INTRODUCTORY TEXT FOR THE 21ST CENTURY', '2222', '2024-12-27 at 07:56 AM', '2024-12-27', '2024-12-26 23:56:58', 'Lost', 'Approved', '2024-12-26 23:56:58', '2024-12-26 23:56:58');
+(39, 'JAMES', '111', 'CRIMINAL JUSTICE TODAY: AN INTRODUCTORY TEXT FOR THE 21ST CENTURY', '2222', '2024-12-27 at 07:56 AM', '2024-12-27', '2024-12-26 23:56:58', 'Lost', 'Approved', '2024-12-26 23:56:58', '2024-12-26 23:56:58'),
+(40, 'JAMES', '111', 'TEST', '121212', '2024-12-29 at 07:17 AM', '2024-12-29', '2025-01-02 23:17:27', 'Returned', 'Approved', '2025-01-02 23:17:27', '2025-01-02 23:17:27'),
+(41, 'INSTRUCTOR', '555', 'CRIMINAL JUSTICE TODAY: AN INTRODUCTORY TEXT FOR THE 21ST CENTURY', '32323232', '2024-12-29 at 07:06 AM', '2024-12-29', '2025-01-02 23:17:29', 'Returned', 'Approved', '2025-01-02 23:17:29', '2025-01-02 23:17:29');
 
 -- --------------------------------------------------------
 
@@ -230,6 +224,14 @@ CREATE TABLE `suggfeed` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `suggfeed`
+--
+
+INSERT INTO `suggfeed` (`id`, `info`, `userId`, `date`, `created_at`, `updated_at`) VALUES
+(4, 'test instructor', '555', '2025-01-03', '2025-01-02 23:27:21', '2025-01-02 23:27:21'),
+(5, 'test student', '111', '2025-01-03', '2025-01-02 23:28:21', '2025-01-02 23:28:21');
 
 -- --------------------------------------------------------
 
@@ -337,7 +339,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `attendance`
 --
 ALTER TABLE `attendance`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT for table `books`
@@ -373,13 +375,13 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT for table `records`
 --
 ALTER TABLE `records`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
 
 --
 -- AUTO_INCREMENT for table `suggfeed`
 --
 ALTER TABLE `suggfeed`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `users`

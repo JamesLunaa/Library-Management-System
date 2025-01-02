@@ -29,7 +29,7 @@
                     </div>
                     <div id="margin-form" class="text-center mt-4 mx-4">
                         <div class="d-flex gap-2">
-                            <form id="search-form" action="{{ route('userRecords') }}" class="flex-fill d-flex gap-2" method="post">
+                            <form id="search-form" action="{{ route('instructorRecords') }}" class="flex-fill d-flex gap-2" method="post">
                                 @csrf
                                 <div class="input-group input-group-lg mb-3">
                                     <input name="info" type="number" class="form-control shadow-sm"
@@ -42,7 +42,7 @@
                                             type="submit">Search</button></a>
                                 </div>
                             </form>
-                            <a id="remove-reload" href="{{ route('user.records') }}"><button type="submit"
+                            <a id="remove-reload" href="{{ route('instructor.records') }}"><button type="submit"
                                     class="btn btn-lg btn-secondary">Reload</button></a>
                         </div>
                     </div>

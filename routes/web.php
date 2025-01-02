@@ -21,6 +21,8 @@ use App\Http\Controllers\Instructor\InstructorBookController;
 use App\Http\Controllers\Instructor\InstructorRequestController;
 use App\Http\Controllers\Instructor\InstructorPageController;
 use App\Http\Controllers\Instructor\InstructorBorrowedController;
+use App\Http\Controllers\Instructor\InstructorRecordController;
+use App\Http\Controllers\Instructor\InstructorFeedbackController;
 
 //for users
 use App\Http\Controllers\Users\UserBookController;
@@ -135,13 +137,13 @@ Route::middleware(['auth', 'checkAccountLevel:Instructor'])->group(function () {
     //Manage Borrowed 
     Route::get('/instructor/borrowedBooks', [InstructorBorrowedController::class, 'borrowedBook'])->name('instructor.borrowedBooks');
     
-    //Manage Record @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-    Route::get('/instructor/userRecords', [UserRecordController::class, 'userRecord'])->name('user.records');
-    Route::post('/instructor/userRecords', [UserRecordController::class, 'userRecord'])->name('userRecords');
+    //Manage Record 
+    Route::get('/instructor/userRecords', [InstructorRecordController::class, 'userRecord'])->name('instructor.records');
+    Route::post('/instructor/userRecords', [InstructorRecordController::class, 'userRecord'])->name('instructorRecords');
 
-    //Submit Feedback @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-    Route::get('/instructor/feedback', [UserPageController::class, 'feedback'])->name('user.feedback');
-    Route::post('/instructor/feedback', [FeedbackController::class, 'sendFeedback'])->name('userFeedback');
+    //Submit Feedback
+    Route::get('/instructor/feedback', [InstructorPageController::class, 'feedback'])->name('instructor.feedback');
+    Route::post('/instructor/feedback', [InstructorFeedbackController::class, 'sendFeedback'])->name('instructorFeedback');
 
     
 });

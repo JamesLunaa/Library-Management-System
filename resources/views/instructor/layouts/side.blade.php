@@ -56,8 +56,8 @@
                 </a>
             </li>
             <li>
-                <a href="{{ route('user.records') }}"
-                    class="nav-link {{ Route::currentRouteName() == 'user.records' ? 'active' : '' }} text-white">
+                <a href="{{ route('instructor.records') }}"
+                    class="nav-link {{ Route::currentRouteName() == 'instructor.records' ? 'active' : '' }} text-white">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-clock-history" viewBox="0 0 16 16">
                         <path d="M8.515 1.019A7 7 0 0 0 8 1V0a8 8 0 0 1 .589.022zm2.004.45a7 7 0 0 0-.985-.299l.219-.976q.576.129 1.126.342zm1.37.71a7 7 0 0 0-.439-.27l.493-.87a8 8 0 0 1 .979.654l-.615.789a7 7 0 0 0-.418-.302zm1.834 1.79a7 7 0 0 0-.653-.796l.724-.69q.406.429.747.91zm.744 1.352a7 7 0 0 0-.214-.468l.893-.45a8 8 0 0 1 .45 1.088l-.95.313a7 7 0 0 0-.179-.483m.53 2.507a7 7 0 0 0-.1-1.025l.985-.17q.1.58.116 1.17zm-.131 1.538q.05-.254.081-.51l.993.123a8 8 0 0 1-.23 1.155l-.964-.267q.069-.247.12-.501m-.952 2.379q.276-.436.486-.908l.914.405q-.24.54-.555 1.038zm-.964 1.205q.183-.183.35-.378l.758.653a8 8 0 0 1-.401.432z"/>
                         <path d="M8 1a7 7 0 1 0 4.95 11.95l.707.707A8.001 8.001 0 1 1 8 0z"/>
@@ -67,8 +67,8 @@
                 </a>
             </li>
             <li>
-                <a href="{{ route('user.feedback') }}"
-                    class="nav-link {{ Route::currentRouteName() == 'user.feedback' ? 'active' : '' }} text-white">
+                <a href="{{ route('instructor.feedback') }}"
+                    class="nav-link {{ Route::currentRouteName() == 'instructor.feedback' ? 'active' : '' }} text-white">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
                         class="bi bi-pencil-square" viewBox="0 0 16 16">
                         <path
@@ -108,7 +108,16 @@
         
         <ul class="sidebar-nav">
             <li class="sidebar-item">
-                <a href="{{ route('user.searchBook') }}" class="sidebar-link nav-link {{ Route::currentRouteName() == 'user.searchBook' || Route::currentRouteName() == 'borrow' ? 'active' : '' }} text-white">
+                <a href="{{ route('instructor.rules') }}" class="sidebar-link nav-link {{ Route::currentRouteName() == 'instructor.rules' ? 'active' : '' }} text-white">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-bookshelf" viewBox="0 0 16 16">
+                        <path d="M2.5 0a.5.5 0 0 1 .5.5V2h10V.5a.5.5 0 0 1 1 0v15a.5.5 0 0 1-1 0V15H3v.5a.5.5 0 0 1-1 0V.5a.5.5 0 0 1 .5-.5M3 14h10v-3H3zm0-4h10V7H3zm0-4h10V3H3z"/>
+                      </svg>
+                    <span>Library Rules</span>
+                </a>
+            </li>
+            <li class="sidebar-item">
+                <a href="{{ route('instructor.searchBook') }}"
+                    class="sidebar-link nav-link {{ Route::currentRouteName() == 'instructor.searchBook' || Route::currentRouteName() == 'instructorBorrow' ? 'active' : '' }} text-white">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-bookshelf" viewBox="0 0 16 16">
                         <path d="M2.5 0a.5.5 0 0 1 .5.5V2h10V.5a.5.5 0 0 1 1 0v15a.5.5 0 0 1-1 0V15H3v.5a.5.5 0 0 1-1 0V.5a.5.5 0 0 1 .5-.5M3 14h10v-3H3zm0-4h10V7H3zm0-4h10V3H3z"/>
                       </svg>
@@ -116,7 +125,8 @@
                 </a>
             </li>
             <li class="sidebar-item">
-                <a href="{{ route('user.requestStatus') }}" class="sidebar-link nav-link {{ Route::currentRouteName() == 'user.requestStatus' ? 'active' : '' }} text-white">
+                <a href="{{ route('instructor.requestStatus') }}"
+                    class="sidebar-link nav-link {{ Route::currentRouteName() == 'instructor.requestStatus' ? 'active' : '' }} text-white">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-hourglass-split" viewBox="0 0 16 16">
                         <path d="M2.5 15a.5.5 0 1 1 0-1h1v-1a4.5 4.5 0 0 1 2.557-4.06c.29-.139.443-.377.443-.59v-.7c0-.213-.154-.451-.443-.59A4.5 4.5 0 0 1 3.5 3V2h-1a.5.5 0 0 1 0-1h11a.5.5 0 0 1 0 1h-1v1a4.5 4.5 0 0 1-2.557 4.06c-.29.139-.443.377-.443.59v.7c0 .213.154.451.443.59A4.5 4.5 0 0 1 12.5 13v1h1a.5.5 0 0 1 0 1zm2-13v1c0 .537.12 1.045.337 1.5h6.326c.216-.455.337-.963.337-1.5V2zm3 6.35c0 .701-.478 1.236-1.011 1.492A3.5 3.5 0 0 0 4.5 13s.866-1.299 3-1.48zm1 0v3.17c2.134.181 3 1.48 3 1.48a3.5 3.5 0 0 0-1.989-3.158C8.978 9.586 8.5 9.052 8.5 8.351z"/>
                       </svg>
@@ -124,7 +134,8 @@
                 </a>
             </li>
             <li class="sidebar-item">
-                <a href="{{ route('user.borrowedBooks') }}" class="sidebar-link nav-link {{ Route::currentRouteName() == 'user.borrowedBooks' ? 'active' : '' }} text-white">
+                <a href="{{ route('instructor.borrowedBooks') }}"
+                    class="sidebar-link nav-link {{ Route::currentRouteName() == 'instructor.borrowedBooks' ? 'active' : '' }} text-white">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
                         class="bi bi-send" viewBox="0 0 16 16">
                         <path
@@ -134,7 +145,8 @@
                 </a>
             </li>
             <li class="sidebar-item">
-                <a href="{{ route('user.records') }}" class="sidebar-link nav-link {{ Route::currentRouteName() == 'user.records' ? 'active' : '' }} text-white">
+                <a href="{{ route('instructor.records') }}"
+                    class="sidebar-link nav-link {{ Route::currentRouteName() == 'instructor.records' ? 'active' : '' }} text-white">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-clock-history" viewBox="0 0 16 16">
                         <path d="M8.515 1.019A7 7 0 0 0 8 1V0a8 8 0 0 1 .589.022zm2.004.45a7 7 0 0 0-.985-.299l.219-.976q.576.129 1.126.342zm1.37.71a7 7 0 0 0-.439-.27l.493-.87a8 8 0 0 1 .979.654l-.615.789a7 7 0 0 0-.418-.302zm1.834 1.79a7 7 0 0 0-.653-.796l.724-.69q.406.429.747.91zm.744 1.352a7 7 0 0 0-.214-.468l.893-.45a8 8 0 0 1 .45 1.088l-.95.313a7 7 0 0 0-.179-.483m.53 2.507a7 7 0 0 0-.1-1.025l.985-.17q.1.58.116 1.17zm-.131 1.538q.05-.254.081-.51l.993.123a8 8 0 0 1-.23 1.155l-.964-.267q.069-.247.12-.501m-.952 2.379q.276-.436.486-.908l.914.405q-.24.54-.555 1.038zm-.964 1.205q.183-.183.35-.378l.758.653a8 8 0 0 1-.401.432z"/>
                         <path d="M8 1a7 7 0 1 0 4.95 11.95l.707.707A8.001 8.001 0 1 1 8 0z"/>
@@ -144,7 +156,8 @@
                 </a>
             </li>
             <li class="sidebar-item">
-                <a href="{{ route('user.feedback') }}" class="sidebar-link nav-link {{ Route::currentRouteName() == 'user.feedback' ? 'active' : '' }} text-white">
+                <a href="{{ route('instructor.feedback') }}"
+                    class="sidebar-link nav-link {{ Route::currentRouteName() == 'instructor.feedback' ? 'active' : '' }} text-white">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
                         class="bi bi-pencil-square" viewBox="0 0 16 16">
                         <path
@@ -156,7 +169,7 @@
                 </a>
             </li>
             <li class="sidebar-item">
-                <a href="{{ route('user.changePass') }}" class="sidebar-link nav-link {{ Route::currentRouteName() == 'user.changePass' ? 'active' : '' }} text-white">
+                <a href="{{ route('instructor.changePass') }}" class="sidebar-link nav-link {{ Route::currentRouteName() == 'instructor.changePass' ? 'active' : '' }} text-white">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-lines-fill" viewBox="0 0 16 16">
                         <path d="M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m-5 6s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zM11 3.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5m.5 2.5a.5.5 0 0 0 0 1h4a.5.5 0 0 0 0-1zm2 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1zm0 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1z"/>
                       </svg>

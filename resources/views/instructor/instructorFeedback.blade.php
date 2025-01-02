@@ -66,7 +66,7 @@
                             }
                         }, 4000); // 5000ms = 5 seconds
                     </script>
-                    <form action="{{ route('userFeedback') }}" class="text-center" method="post">
+                    <form action="{{ route('instructorFeedback') }}" class="text-center" method="post">
                         @csrf
                         <div class="mb-3">
                             <textarea class="shadow form-control textArea fs-5" name="suggFeed" id="exampleFormControlTextarea1" rows="3"

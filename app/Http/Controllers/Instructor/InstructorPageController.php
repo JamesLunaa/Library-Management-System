@@ -11,4 +11,8 @@ class InstructorPageController extends Controller
     {
         return view('instructor.instructorChangePass');
     }
+    public function feedback()
+    {
+        return view('instructor.instructorFeedback');
+    }
 }
