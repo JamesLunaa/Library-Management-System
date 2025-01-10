@@ -1,0 +1,1874 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <style>
+            /* table thead tr{
+              background: none !important;
+              color: #212529 !important;
+            } */
+            input[type="radio"] {
+                height: 18px;
+                width: 18px;
+                cursor: pointer;
+            }
+            .image-thumbnail {
+                margin: auto;
+                height: 200px;
+                width: 200px;
+                overflow: hidden;
+            }
+            .image-thumbnail img:hover {
+                box-shadow: 0 3px 8px rgb(0 0 0 / 15%);
+            }
+            .image-thumbnail img {
+                cursor: pointer;
+                transition: all 0.2s ease-in-out;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+            .table-bordered th,
+            .table-bordered td {
+                border: 1px solid #dee2e6 !important;
+            }
+            .table th {
+                font-weight: 600;
+            }
+            .table td {
+                font-size: 14px;
+            }
+        </style>
+        <section class="content-container second-sec">
+            <div class="container-fluid my-appointment">
+                <div class="card shadow-0">
+                    <div class="card-body">
+                        <h3>Faculty Evaluation by Students</h3>
+                        <hr />
+
+                        <div class="form-row mt-20">
+                            <div class="col-12 mt-10 text-right">
+                                <a
+                                    href="https://college.stctandag.edu.ph/evaluation_instructor"
+                                    class="btn btn-secondary btn-raised"
+                                    >Back</a
+                                >
+                            </div>
+                            <div class="col-12 mt-20 mb-20">
+                                <div
+                                    class="image-thumbnail light-gallery-preview"
+                                    data-src="https://iteachcol.stctandag.edu.ph/uploads/users/6ca4e9bf-c274-a168-516c-4e0a835bec92.jpg?v=09"
+                                    title="ALIGUAY, MAED, REALUZ S.<br>(APPLICATION DEVELOPMENT AND EMERGING TECHNOLOGIES)"
+                                >
+                                    <img
+                                        src="https://iteachcol.stctandag.edu.ph/uploads/users/6ca4e9bf-c274-a168-516c-4e0a835bec92.jpg?v=09"
+                                        alt=""
+                                    />
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-4">
+                                <div class="data-group w-line">
+                                    <label>Instructor</label>
+                                    <p class="md-data">
+                                        ALIGUAY, MAED, REALUZ S.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-4">
+                                <div class="data-group w-line">
+                                    <label>Description</label>
+                                    <p class="md-data">
+                                        APPLICATION DEVELOPMENT AND EMERGING
+                                        TECHNOLOGIES
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-4">
+                                <div class="data-group w-line">
+                                    <label>&nbsp;</label>
+                                    <p class="md-data">
+                                        <b>SY: 2024-2025 1st semester</b>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-4">
+                                <div class="data-group w-line">
+                                    <label>Department</label>
+                                    <p class="md-data">CIT</p>
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-4">
+                                <div class="data-group w-line">
+                                    <label>Date Evaluated</label>
+                                    <p class="md-data">-</p>
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-4">
+                                <div class="data-group w-line">
+                                    <label>Status</label>
+                                    <p class="md-data">
+                                        <b class="text-danger">UNEVALUATED</b>
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="col-12 mt-30">
+                                <p>
+                                    <b>Direction:</b><br />This is an evaluation
+                                    of your instructor. Answer accurately and
+                                    honestly. Your opinion will be held strictly
+                                    confidential. Using the scale below, please
+                                    react to the statement about the faculty
+                                    behavior. Select the number that corresponds
+                                    to your rating. See to it that all are
+                                    answered.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="form-row mt-10">
+                            <div class="col-sm-6"></div>
+                            <div class="col-sm-6">
+                                <table class="table">
+                                    <tbody>
+                                        <tr style="box-shadow: none">
+                                            <td><b>5</b></td>
+                                            <td>EXCELLENT</td>
+                                        </tr>
+                                        <tr style="box-shadow: none">
+                                            <td><b>4</b></td>
+                                            <td>VERY SATISFACTORY</td>
+                                        </tr>
+                                        <tr style="box-shadow: none">
+                                            <td><b>3</b></td>
+                                            <td>SATISFACTORY</td>
+                                        </tr>
+                                        <tr style="box-shadow: none">
+                                            <td><b>2</b></td>
+                                            <td>FAIR</td>
+                                        </tr>
+                                        <tr style="box-shadow: none">
+                                            <td><b>1</b></td>
+                                            <td>POOR</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <!-- FORM -->
+                        <form id="evaluation-form">
+                            <input type="hidden" name="schedID" value="19962" />
+                            <div class="form-row mb-50">
+                                <div class="col-12">
+                                    <p
+                                        class="m-0 text-right show-mobile-view"
+                                        style="display: none"
+                                    >
+                                        <i class="icofont-arrow-left"></i>
+                                        <b>SWIP</b>
+                                        <i class="icofont-arrow-right"></i>
+                                    </p>
+                                </div>
+                                <div class="col-12 mt-20">
+                                    <div class="table-responsive">
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th colspan="2">
+                                                        A. KNOWLEDGE OF THE
+                                                        SUBJECT MATTER
+                                                    </th>
+                                                    <th class="text-center">
+                                                        5
+                                                    </th>
+                                                    <th class="text-center">
+                                                        4
+                                                    </th>
+                                                    <th class="text-center">
+                                                        3
+                                                    </th>
+                                                    <th class="text-center">
+                                                        2
+                                                    </th>
+                                                    <th class="text-center">
+                                                        1
+                                                    </th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>1.</td>
+                                                    <td>
+                                                        Presents the objectives
+                                                        of the course well.
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <input
+                                                            type="radio"
+                                                            name="a1"
+                                                            value="5"
+                                                            required=""
+                                                        />
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <input
+                                                            type="radio"
+                                                            name="a1"
+                                                            value="4"
+                                                            required=""
+                                                        />
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <input
+                                                            type="radio"
+                                                            name="a1"
+                                                            value="3"
+                                                            required=""
+                                                        />
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <input
+                                                            type="radio"
+                                                            name="a1"
+                                                            value="2"
+                                                            required=""
+                                                        />
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <input
+                                                            type="radio"
+                                                            name="a1"
+                                                            value="1"
+                                                            required=""
+                                                        />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>2.</td>
+                                                    <td>
+                                                        Shows mastery of the
+                                                        subject matter.
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <input
+                                                            type="radio"
+                                                            name="a2"
+                                                            value="5"
+                                                            required=""
+                                                        />
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <input
+                                                            type="radio"
+                                                            name="a2"
+                                                            value="4"
+                                                            required=""
+                                                        />
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <input
+                                                            type="radio"
+                                                            name="a2"
+                                                            value="3"
+                                                            required=""
+                                                        />
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <input
+                                                            type="radio"
+                                                            name="a2"
+                                                            value="2"
+                                                            required=""
+                                                        />
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <input
+                                                            type="radio"
+                                                            name="a2"
+                                                            value="1"
+                                                            required=""
+                                                        />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>3.</td>
+                                                    <td>
+                                                        Has the ability to
+                                                        analyze and elaborate
+                                                        the subject matter.
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <input
+                                                            type="radio"
+                                                            name="a3"
+                                                            value="5"
+                                                            required=""
+                                                        />
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <input
+                                                            type="radio"
+                                                            name="a3"
+                                                            value="4"
+                                                            required=""
+                                                        />
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <input
+                                                            type="radio"
+                                                            name="a3"
+                                                            value="3"
+                                                            required=""
+                                                        />
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <input
+                                                            type="radio"
+                                                            name="a3"
+                                                            value="2"
+                                                            required=""
+                                                        />
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <input
+                                                            type="radio"
+                                                            name="a3"
+                                                            value="1"
+                                                            required=""
+                                                        />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>4.</td>
+                                                    <td>
+                                                        Has a deep and sustained
+                                                        enthusiasm towards the
+                                                        subject.
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <input
+                                                            type="radio"
+                                                            name="a4"
+                                                            value="5"
+                                                            required=""
+                                                        />
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <input
+                                                            type="radio"
+                                                            name="a4"
+                                                            value="4"
+                                                            required=""
+                                                        />
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <input
+                                                            type="radio"
+                                                            name="a4"
+                                                            value="3"
+                                                            required=""
+                                                        />
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <input
+                                                            type="radio"
+                                                            name="a4"
+                                                            value="2"
+                                                            required=""
+                                                        />
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <input
+                                                            type="radio"
+                                                            name="a4"
+                                                            value="1"
+                                                            required=""
+                                                        />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>5.</td>
+                                                    <td>
+                                                        Ability to relate
+                                                        subject matter to
+                                                        present situation.
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <input
+                                                            type="radio"
+                                                            name="a5"
+                                                            value="5"
+                                                            required=""
+                                                        />
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <input
+                                                            type="radio"
+                                                            name="a5"
+                                                            value="4"
+                                                            required=""
+                                                        />
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <input
+                                                            type="radio"
+                                                            name="a5"
+                                                            value="3"
+                                                            required=""
+                                                        />
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <input
+                                                            type="radio"
+                                                            name="a5"
+                                                            value="2"
+                                                            required=""
+                                                        />
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <input
+                                                            type="radio"
+                                                            name="a5"
+                                                            value="1"
+                                                            required=""
+                                                        />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>6.</td>
+                                                    <td>
+                                                        Gives trivia/facts about
+                                                        the topic discussed.
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <input
+                                                            type="radio"
+                                                            name="a6"
+                                                            value="5"
+                                                            required=""
+                                                        />
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <input
+                                                            type="radio"
+                                                            name="a6"
+                                                            value="4"
+                                                            required=""
+                                                        />
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <input
+                                                            type="radio"
+                                                            name="a6"
+                                                            value="3"
+                                                            required=""
+                                                        />
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <input
+                                                            type="radio"
+                                                            name="a6"
+                                                            value="2"
+                                                            required=""
+                                                        />
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <input
+                                                            type="radio"
+                                                            name="a6"
+                                                            value="1"
+                                                            required=""
+                                                        />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td colaspan="20">
+                                                        <br />
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                            <thead>
+                                                <tr>
+                                                    <th colspan="2">
+                                                        B. DAILY PREPARATION
+                                                    </th>
+                                                    <th class="text-center">
+                                                        5
+                                                    </th>
+                                                    <th class="text-center">
+                                                        4
+                                                    </th>
+                                                    <th class="text-center">
+                                                        3
+                                                    </th>
+                                                    <th class="text-center">
+                                                        2
+                                                    </th>
+                                                    <th class="text-center">
+                                                        1
+                                                    </th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>1.</td>
+                                                    <td>
+                                                        Comes to school
+                                                        regularly.
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <input
+                                                            type="radio"
+                                                            name="b1"
+                                                            value="5"
+                                                            required=""
+                                                        />
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <input
+                                                            type="radio"
+                                                            name="b1"
+                                                            value="4"
+                                                            required=""
+                                                        />
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <input
+                                                            type="radio"
+                                                            name="b1"
+                                                            value="3"
+                                                            required=""
+                                                        />
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <input
+                                                            type="radio"
+                                                            name="b1"
+                                                            value="2"
+                                                            required=""
+                                                        />
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <input
+                                                            type="radio"
+                                                            name="b1"
+                                                            value="1"
+                                                            required=""
+                                                        />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>2.</td>
+                                                    <td>
+                                                        Comes to class on time.
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <input
+                                                            type="radio"
+                                                            name="b2"
+                                                            value="5"
+                                                            required=""
+                                                        />
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <input
+                                                            type="radio"
+                                                            name="b2"
+                                                            value="4"
+                                                            required=""
+                                                        />
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <input
+                                                            type="radio"
+                                                            name="b2"
+                                                            value="3"
+                                                            required=""
+                                                        />
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <input
+                                                            type="radio"
+                                                            name="b2"
+                                                            value="2"
+                                                            required=""
+                                                        />
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <input
+                                                            type="radio"
+                                                            name="b2"
+                                                            value="1"
+                                                            required=""
+                                                        />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>3.</td>
+                                                    <td>
+                                                        Dismiss class on time.
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <input
+                                                            type="radio"
+                                                            name="b3"
+                                                            value="5"
+                                                            required=""
+                                                        />
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <input
+                                                            type="radio"
+                                                            name="b3"
+                                                            value="4"
+                                                            required=""
+                                                        />
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <input
+                                                            type="radio"
+                                                            name="b3"
+                                                            value="3"
+                                                            required=""
+                                                        />
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <input
+                                                            type="radio"
+                                                            name="b3"
+                                                            value="2"
+                                                            required=""
+                                                        />
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <input
+                                                            type="radio"
+                                                            name="b3"
+                                                            value="1"
+                                                            required=""
+                                                        />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>4.</td>
+                                                    <td>
+                                                        Comes to class prepared.
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <input
+                                                            type="radio"
+                                                            name="b4"
+                                                            value="5"
+                                                            required=""
+                                                        />
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <input
+                                                            type="radio"
+                                                            name="b4"
+                                                            value="4"
+                                                            required=""
+                                                        />
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <input
+                                                            type="radio"
+                                                            name="b4"
+                                                            value="3"
+                                                            required=""
+                                                        />
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <input
+                                                            type="radio"
+                                                            name="b4"
+                                                            value="2"
+                                                            required=""
+                                                        />
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <input
+                                                            type="radio"
+                                                            name="b4"
+                                                            value="1"
+                                                            required=""
+                                                        />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>5.</td>
+                                                    <td>
+                                                        Follow a course
+                                                        syllabus/outline as
+                                                        scheduled.
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <input
+                                                            type="radio"
+                                                            name="b5"
+                                                            value="5"
+                                                            required=""
+                                                        />
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <input
+                                                            type="radio"
+                                                            name="b5"
+                                                            value="4"
+                                                            required=""
+                                                        />
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <input
+                                                            type="radio"
+                                                            name="b5"
+                                                            value="3"
+                                                            required=""
+                                                        />
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <input
+                                                            type="radio"
+                                                            name="b5"
+                                                            value="2"
+                                                            required=""
+                                                        />
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <input
+                                                            type="radio"
+                                                            name="b5"
+                                                            value="1"
+                                                            required=""
+                                                        />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>6.</td>
+                                                    <td>
+                                                        Use instructional
+                                                        materials (Projector,
+                                                        TV, Library).
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <input
+                                                            type="radio"
+                                                            name="b6"
+                                                            value="5"
+                                                            required=""
+                                                        />
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <input
+                                                            type="radio"
+                                                            name="b6"
+                                                            value="4"
+                                                            required=""
+                                                        />
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <input
+                                                            type="radio"
+                                                            name="b6"
+                                                            value="3"
+                                                            required=""
+                                                        />
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <input
+                                                            type="radio"
+                                                            name="b6"
+                                                            value="2"
+                                                            required=""
+                                                        />
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <input
+                                                            type="radio"
+                                                            name="b6"
+                                                            value="1"
+                                                            required=""
+                                                        />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td colaspan="20">
+                                                        <br />
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                            <thead>
+                                                <tr>
+                                                    <th colspan="2">
+                                                        C. EFFECTIVENESS OF
+                                                        TEACHING TECHNIQUES
+                                                    </th>
+                                                    <th class="text-center">
+                                                        5
+                                                    </th>
+                                                    <th class="text-center">
+                                                        4
+                                                    </th>
+                                                    <th class="text-center">
+                                                        3
+                                                    </th>
+                                                    <th class="text-center">
+                                                        2
+                                                    </th>
+                                                    <th class="text-center">
+                                                        1
+                                                    </th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>1.</td>
+                                                    <td>
+                                                        Has a good command of
+                                                        the language of
+                                                        instruction using words
+                                                        with in the student’s
+                                                        level of understanding.
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <input
+                                                            type="radio"
+                                                            name="c1"
+                                                            value="5"
+                                                            required=""
+                                                        />
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <input
+                                                            type="radio"
+                                                            name="c1"
+                                                            value="4"
+                                                            required=""
+                                                        />
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <input
+                                                            type="radio"
+                                                            name="c1"
+                                                            value="3"
+                                                            required=""
+                                                        />
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <input
+                                                            type="radio"
+                                                            name="c1"
+                                                            value="2"
+                                                            required=""
+                                                        />
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <input
+                                                            type="radio"
+                                                            name="c1"
+                                                            value="1"
+                                                            required=""
+                                                        />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>2.</td>
+                                                    <td>
+                                                        Has the ability to
+                                                        stimulate the student’s
+                                                        interest and desire to
+                                                        learn more about the
+                                                        subject matter.
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <input
+                                                            type="radio"
+                                                            name="c2"
+                                                            value="5"
+                                                            required=""
+                                                        />
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <input
+                                                            type="radio"
+                                                            name="c2"
+                                                            value="4"
+                                                            required=""
+                                                        />
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <input
+                                                            type="radio"
+                                                            name="c2"
+                                                            value="3"
+                                                            required=""
+                                                        />
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <input
+                                                            type="radio"
+                                                            name="c2"
+                                                            value="2"
+                                                            required=""
+                                                        />
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <input
+                                                            type="radio"
+                                                            name="c2"
+                                                            value="1"
+                                                            required=""
+                                                        />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>3.</td>
+                                                    <td>
+                                                        Informs the class on how
+                                                        he/she is graded/grading
+                                                        system.
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <input
+                                                            type="radio"
+                                                            name="c3"
+                                                            value="5"
+                                                            required=""
+                                                        />
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <input
+                                                            type="radio"
+                                                            name="c3"
+                                                            value="4"
+                                                            required=""
+                                                        />
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <input
+                                                            type="radio"
+                                                            name="c3"
+                                                            value="3"
+                                                            required=""
+                                                        />
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <input
+                                                            type="radio"
+                                                            name="c3"
+                                                            value="2"
+                                                            required=""
+                                                        />
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <input
+                                                            type="radio"
+                                                            name="c3"
+                                                            value="1"
+                                                            required=""
+                                                        />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>4.</td>
+                                                    <td>
+                                                        Follows a just
+                                                        evaluation /grading
+                                                        system.
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <input
+                                                            type="radio"
+                                                            name="c4"
+                                                            value="5"
+                                                            required=""
+                                                        />
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <input
+                                                            type="radio"
+                                                            name="c4"
+                                                            value="4"
+                                                            required=""
+                                                        />
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <input
+                                                            type="radio"
+                                                            name="c4"
+                                                            value="3"
+                                                            required=""
+                                                        />
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <input
+                                                            type="radio"
+                                                            name="c4"
+                                                            value="2"
+                                                            required=""
+                                                        />
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <input
+                                                            type="radio"
+                                                            name="c4"
+                                                            value="1"
+                                                            required=""
+                                                        />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>5.</td>
+                                                    <td>
+                                                        Gives fair exam/test
+                                                        that cover the subject
+                                                        matter.
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <input
+                                                            type="radio"
+                                                            name="c5"
+                                                            value="5"
+                                                            required=""
+                                                        />
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <input
+                                                            type="radio"
+                                                            name="c5"
+                                                            value="4"
+                                                            required=""
+                                                        />
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <input
+                                                            type="radio"
+                                                            name="c5"
+                                                            value="3"
+                                                            required=""
+                                                        />
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <input
+                                                            type="radio"
+                                                            name="c5"
+                                                            value="2"
+                                                            required=""
+                                                        />
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <input
+                                                            type="radio"
+                                                            name="c5"
+                                                            value="1"
+                                                            required=""
+                                                        />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>6.</td>
+                                                    <td>
+                                                        Checks fairly and
+                                                        returns test papers.
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <input
+                                                            type="radio"
+                                                            name="c6"
+                                                            value="5"
+                                                            required=""
+                                                        />
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <input
+                                                            type="radio"
+                                                            name="c6"
+                                                            value="4"
+                                                            required=""
+                                                        />
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <input
+                                                            type="radio"
+                                                            name="c6"
+                                                            value="3"
+                                                            required=""
+                                                        />
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <input
+                                                            type="radio"
+                                                            name="c6"
+                                                            value="2"
+                                                            required=""
+                                                        />
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <input
+                                                            type="radio"
+                                                            name="c6"
+                                                            value="1"
+                                                            required=""
+                                                        />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>7.</td>
+                                                    <td>
+                                                        Rates students based on
+                                                        performance.
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <input
+                                                            type="radio"
+                                                            name="c7"
+                                                            value="5"
+                                                            required=""
+                                                        />
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <input
+                                                            type="radio"
+                                                            name="c7"
+                                                            value="4"
+                                                            required=""
+                                                        />
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <input
+                                                            type="radio"
+                                                            name="c7"
+                                                            value="3"
+                                                            required=""
+                                                        />
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <input
+                                                            type="radio"
+                                                            name="c7"
+                                                            value="2"
+                                                            required=""
+                                                        />
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <input
+                                                            type="radio"
+                                                            name="c7"
+                                                            value="1"
+                                                            required=""
+                                                        />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td colaspan="20">
+                                                        <br />
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                            <thead>
+                                                <tr>
+                                                    <th colspan="2">
+                                                        D. CLASSROOM MANAGEMENT
+                                                    </th>
+                                                    <th class="text-center">
+                                                        5
+                                                    </th>
+                                                    <th class="text-center">
+                                                        4
+                                                    </th>
+                                                    <th class="text-center">
+                                                        3
+                                                    </th>
+                                                    <th class="text-center">
+                                                        2
+                                                    </th>
+                                                    <th class="text-center">
+                                                        1
+                                                    </th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>1.</td>
+                                                    <td>
+                                                        Has the ability to
+                                                        maintain a responsive
+                                                        but disciplined
+                                                        classroom atmosphere.
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <input
+                                                            type="radio"
+                                                            name="d1"
+                                                            value="5"
+                                                            required=""
+                                                        />
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <input
+                                                            type="radio"
+                                                            name="d1"
+                                                            value="4"
+                                                            required=""
+                                                        />
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <input
+                                                            type="radio"
+                                                            name="d1"
+                                                            value="3"
+                                                            required=""
+                                                        />
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <input
+                                                            type="radio"
+                                                            name="d1"
+                                                            value="2"
+                                                            required=""
+                                                        />
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <input
+                                                            type="radio"
+                                                            name="d1"
+                                                            value="1"
+                                                            required=""
+                                                        />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>2.</td>
+                                                    <td>
+                                                        Handles class and
+                                                        students problem with
+                                                        fairness.
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <input
+                                                            type="radio"
+                                                            name="d2"
+                                                            value="5"
+                                                            required=""
+                                                        />
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <input
+                                                            type="radio"
+                                                            name="d2"
+                                                            value="4"
+                                                            required=""
+                                                        />
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <input
+                                                            type="radio"
+                                                            name="d2"
+                                                            value="3"
+                                                            required=""
+                                                        />
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <input
+                                                            type="radio"
+                                                            name="d2"
+                                                            value="2"
+                                                            required=""
+                                                        />
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <input
+                                                            type="radio"
+                                                            name="d2"
+                                                            value="1"
+                                                            required=""
+                                                        />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>3.</td>
+                                                    <td>
+                                                        Uses language
+                                                        appropriate for the
+                                                        classroom, maintain a
+                                                        dignified behavior for a
+                                                        catholic mentor.
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <input
+                                                            type="radio"
+                                                            name="d3"
+                                                            value="5"
+                                                            required=""
+                                                        />
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <input
+                                                            type="radio"
+                                                            name="d3"
+                                                            value="4"
+                                                            required=""
+                                                        />
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <input
+                                                            type="radio"
+                                                            name="d3"
+                                                            value="3"
+                                                            required=""
+                                                        />
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <input
+                                                            type="radio"
+                                                            name="d3"
+                                                            value="2"
+                                                            required=""
+                                                        />
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <input
+                                                            type="radio"
+                                                            name="d3"
+                                                            value="1"
+                                                            required=""
+                                                        />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>4.</td>
+                                                    <td>
+                                                        Has the ability to hold
+                                                        the class attention.
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <input
+                                                            type="radio"
+                                                            name="d4"
+                                                            value="5"
+                                                            required=""
+                                                        />
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <input
+                                                            type="radio"
+                                                            name="d4"
+                                                            value="4"
+                                                            required=""
+                                                        />
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <input
+                                                            type="radio"
+                                                            name="d4"
+                                                            value="3"
+                                                            required=""
+                                                        />
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <input
+                                                            type="radio"
+                                                            name="d4"
+                                                            value="2"
+                                                            required=""
+                                                        />
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <input
+                                                            type="radio"
+                                                            name="d4"
+                                                            value="1"
+                                                            required=""
+                                                        />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>5.</td>
+                                                    <td>
+                                                        Motivate and inspire
+                                                        students.
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <input
+                                                            type="radio"
+                                                            name="d5"
+                                                            value="5"
+                                                            required=""
+                                                        />
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <input
+                                                            type="radio"
+                                                            name="d5"
+                                                            value="4"
+                                                            required=""
+                                                        />
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <input
+                                                            type="radio"
+                                                            name="d5"
+                                                            value="3"
+                                                            required=""
+                                                        />
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <input
+                                                            type="radio"
+                                                            name="d5"
+                                                            value="2"
+                                                            required=""
+                                                        />
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <input
+                                                            type="radio"
+                                                            name="d5"
+                                                            value="1"
+                                                            required=""
+                                                        />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>6.</td>
+                                                    <td>
+                                                        Maintains
+                                                        cleanliness/neatness of
+                                                        the classroom.
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <input
+                                                            type="radio"
+                                                            name="d6"
+                                                            value="5"
+                                                            required=""
+                                                        />
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <input
+                                                            type="radio"
+                                                            name="d6"
+                                                            value="4"
+                                                            required=""
+                                                        />
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <input
+                                                            type="radio"
+                                                            name="d6"
+                                                            value="3"
+                                                            required=""
+                                                        />
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <input
+                                                            type="radio"
+                                                            name="d6"
+                                                            value="2"
+                                                            required=""
+                                                        />
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <input
+                                                            type="radio"
+                                                            name="d6"
+                                                            value="1"
+                                                            required=""
+                                                        />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>7.</td>
+                                                    <td>
+                                                        Reminds class of
+                                                        upcoming school events.
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <input
+                                                            type="radio"
+                                                            name="d7"
+                                                            value="5"
+                                                            required=""
+                                                        />
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <input
+                                                            type="radio"
+                                                            name="d7"
+                                                            value="4"
+                                                            required=""
+                                                        />
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <input
+                                                            type="radio"
+                                                            name="d7"
+                                                            value="3"
+                                                            required=""
+                                                        />
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <input
+                                                            type="radio"
+                                                            name="d7"
+                                                            value="2"
+                                                            required=""
+                                                        />
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <input
+                                                            type="radio"
+                                                            name="d7"
+                                                            value="1"
+                                                            required=""
+                                                        />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td colaspan="20">
+                                                        <br />
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                            <thead>
+                                                <tr>
+                                                    <th colspan="2">
+                                                        E. INTEGRITY FAIRNESS
+                                                        AND OTHER RELEVANT
+                                                        QUALITIES
+                                                    </th>
+                                                    <th class="text-center">
+                                                        5
+                                                    </th>
+                                                    <th class="text-center">
+                                                        4
+                                                    </th>
+                                                    <th class="text-center">
+                                                        3
+                                                    </th>
+                                                    <th class="text-center">
+                                                        2
+                                                    </th>
+                                                    <th class="text-center">
+                                                        1
+                                                    </th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>1.</td>
+                                                    <td>
+                                                        As a Catholic
+                                                        Instructor, help to
+                                                        instill moral and
+                                                        spiritual values through
+                                                        examples and teachings.
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <input
+                                                            type="radio"
+                                                            name="e1"
+                                                            value="5"
+                                                            required=""
+                                                        />
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <input
+                                                            type="radio"
+                                                            name="e1"
+                                                            value="4"
+                                                            required=""
+                                                        />
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <input
+                                                            type="radio"
+                                                            name="e1"
+                                                            value="3"
+                                                            required=""
+                                                        />
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <input
+                                                            type="radio"
+                                                            name="e1"
+                                                            value="2"
+                                                            required=""
+                                                        />
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <input
+                                                            type="radio"
+                                                            name="e1"
+                                                            value="1"
+                                                            required=""
+                                                        />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>2.</td>
+                                                    <td>
+                                                        Dresses neatly and
+                                                        appropriately for the
+                                                        classroom (uniform).
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <input
+                                                            type="radio"
+                                                            name="e2"
+                                                            value="5"
+                                                            required=""
+                                                        />
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <input
+                                                            type="radio"
+                                                            name="e2"
+                                                            value="4"
+                                                            required=""
+                                                        />
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <input
+                                                            type="radio"
+                                                            name="e2"
+                                                            value="3"
+                                                            required=""
+                                                        />
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <input
+                                                            type="radio"
+                                                            name="e2"
+                                                            value="2"
+                                                            required=""
+                                                        />
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <input
+                                                            type="radio"
+                                                            name="e2"
+                                                            value="1"
+                                                            required=""
+                                                        />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>3.</td>
+                                                    <td>
+                                                        Is kind and friendly but
+                                                        fair and just to his
+                                                        students and shows
+                                                        interest in their
+                                                        welfare.
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <input
+                                                            type="radio"
+                                                            name="e3"
+                                                            value="5"
+                                                            required=""
+                                                        />
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <input
+                                                            type="radio"
+                                                            name="e3"
+                                                            value="4"
+                                                            required=""
+                                                        />
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <input
+                                                            type="radio"
+                                                            name="e3"
+                                                            value="3"
+                                                            required=""
+                                                        />
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <input
+                                                            type="radio"
+                                                            name="e3"
+                                                            value="2"
+                                                            required=""
+                                                        />
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <input
+                                                            type="radio"
+                                                            name="e3"
+                                                            value="1"
+                                                            required=""
+                                                        />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>4.</td>
+                                                    <td>
+                                                        Stimulate the student’s
+                                                        respects and regard for
+                                                        instructor.
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <input
+                                                            type="radio"
+                                                            name="e4"
+                                                            value="5"
+                                                            required=""
+                                                        />
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <input
+                                                            type="radio"
+                                                            name="e4"
+                                                            value="4"
+                                                            required=""
+                                                        />
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <input
+                                                            type="radio"
+                                                            name="e4"
+                                                            value="3"
+                                                            required=""
+                                                        />
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <input
+                                                            type="radio"
+                                                            name="e4"
+                                                            value="2"
+                                                            required=""
+                                                        />
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <input
+                                                            type="radio"
+                                                            name="e4"
+                                                            value="1"
+                                                            required=""
+                                                        />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>5.</td>
+                                                    <td>
+                                                        Has the ability to
+                                                        encourage/inspire
+                                                        wholesome teacher and
+                                                        student’s relationship.
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <input
+                                                            type="radio"
+                                                            name="e5"
+                                                            value="5"
+                                                            required=""
+                                                        />
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <input
+                                                            type="radio"
+                                                            name="e5"
+                                                            value="4"
+                                                            required=""
+                                                        />
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <input
+                                                            type="radio"
+                                                            name="e5"
+                                                            value="3"
+                                                            required=""
+                                                        />
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <input
+                                                            type="radio"
+                                                            name="e5"
+                                                            value="2"
+                                                            required=""
+                                                        />
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <input
+                                                            type="radio"
+                                                            name="e5"
+                                                            value="1"
+                                                            required=""
+                                                        />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td colaspan="20">
+                                                        <br />
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                            <tbody>
+                                                <tr>
+                                                    <td
+                                                        colspan="2"
+                                                        align="right"
+                                                    >
+                                                        <b>AVERAGE:</b>
+                                                    </td>
+                                                    <td colspan="5"><b></b></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+
+                                <div class="col-12 mt-20 mb-20">
+                                    <div class="form-group">
+                                        <label class="mb-10"
+                                            ><b
+                                                >F. COMMENTS/SUGGESTIONS</b
+                                            ></label
+                                        >
+                                        <p class="m-0">
+                                            <b class="text-danger">Note:</b>
+                                            Please write comments and
+                                            suggestions honestly. DO NOT USE NA,
+                                            N/A, NO COMMENT, and NONE.
+                                        </p>
+                                        <textarea
+                                            name="comment"
+                                            id="comment"
+                                            class="form-control"
+                                            required=""
+                                            style="
+                                                overflow: hidden;
+                                                overflow-wrap: break-word;
+                                                resize: none;
+                                                height: 56px;
+                                            "
+                                        ></textarea>
+                                    </div>
+                                </div>
+
+                                <div class="col-12 col-sm-4"></div>
+                                <div class="col-12 col-sm-4">
+                                    <button
+                                        type="submit"
+                                        id="submit-evaluation-btn"
+                                        class="btn btn-primary btn-raised w-100"
+                                    >
+                                        Submit
+                                    </button>
+                                </div>
+                                <div class="col-12 col-sm-4"></div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </body>
+</html>
