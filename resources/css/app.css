@@ -11,7 +11,13 @@
     max-height: 50vh;
     min-width: 100vh;
 }
-
+/* rules */
+.rulesWrap {
+    min-height: 100vh;
+    max-height: 100vh;
+    overflow-y: auto;
+    /* background-color: #92DFE70D; */
+}
 /* searchBook */
 .bookList {
     min-height: 100vh;

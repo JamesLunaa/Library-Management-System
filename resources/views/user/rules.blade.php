@@ -28,50 +28,84 @@
 
                 <div class="card-body mainDisplay">
                     
-                    <div class="border border-danger mt-2 mx-5 px-5 pt-3">
-                        <strong><h2 class="text-center">Library Rules</h2></strong>
-                        <ul>
-                            <li>
+                    <div class="rulesWrap border border-danger p-3">
 
-                            </li>
-                            <li>
-                                
-                            </li>
-                            <li>
-                                
-                            </li>
-                            <li>
-                                
-                            </li>
-                            <li>
-                                
-                            </li>
-                        </ul>
-                    </div>
-
-                        <div id="vmc" class="d-flex border border-danger flex-nowrap mt-5">
-                            <div class="border border-danger p-2">
-                                <strong><h1 class="text-center">v</h1></strong>
-                                <p class="fs-5" style="text-align: justify; text-indent: 3rem;">Lorem ipsum dolor sit amet consectetur adipisicing 
-                                    elit. Ex debitis molestiae quos ea nobis expedita 
-                                    id deleniti dolores placeat, nostrum animi laborum 
-                                    repudiandae earum amet ipsam asperiores ad tempora esse?</p>
+                        <div id="vmc" class="d-flex flex-nowrap mt-5 gap-3">
+                            <div class="border border-black rounded-4 p-2">
+                                <strong><h1 class="text-center" style="color: rgb(233, 28, 28);">VISION</h1></strong>
+                                <p class="fs-5" style="text-align: justify; text-indent: 3rem;">
+                                    The Saint Theresa College Library System Envisions to have sustaining academic
+                                    resources to enhance library functions for easy access of information and research
+                                    by faculty and student users through library automation.
+                                </p>
                             </div>
-                            <div class="border border-danger p-2">
-                                <strong><h1 class="text-center">m</h1></strong>
-                                <p class="fs-5" style="text-align: justify; text-indent: 3rem;">Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
-                                    Rem quod minima voluptas aliquid, neque ullam placeat 
-                                    magnam error quae molestias magni pariatur mollitia iure 
-                                    debitis saepe praesentium excepturi. Ad, perferendis.</p>
+                            <div class="border border-black rounded-4 p-2">
+                                <strong><h1 class="text-center" style="color: rgb(233, 28, 28);">MISSION</h1></strong>
+                                <p class="fs-5" style="text-align: justify; text-indent: 3rem;">
+                                    As school's Library System, it endeavors to assist, serve and provide the school
+                                    clientele all types of library services through its updated resources for adequate acquisition
+                                    of knowledge and information especially in this highly technological world of the academe and research.
+                                </p>
                             </div>
-                            <div class="border border-danger p-2">
-                                <strong><h1 class="text-center">g</h1></strong>
-                                <p class="fs-5" style="text-align: justify; text-indent: 3rem;">Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                                    Totam molestias natus nam nostrum cupiditate reiciendis. 
-                                    Autem minima, nihil, error ducimus excepturi expedita 
-                                    blanditiis nulla sit neque quos cumque eius eveniet!</p>
+                            <div class="border border-black rounded-4 p-2">
+                                <strong><h1 class="text-center" style="color: rgb(233, 28, 28);">GOAL</h1></strong>
+                                <p class="fs-5" style="text-align: justify; text-indent: 3rem;">
+                                    To fulfill its vision and mission, the school aims to uphold the integrity of the 
+                                    Theresian community through its quality of instruction and learning with the value
+                                    of providing library information thereby enhancing knowledge and expertise among
+                                    its clientele.
+                                </p>
                             </div>
                         </div>
+
+                        <div class="border border-black rounded-4 mt-2 mx-5 px-5 pt-3">
+                            <strong><h1 class="text-center" style="color: rgb(233, 28, 28);">OBJECTIVES</h1></strong>
+                            <p class="fs-5" style="text-align: justify; text-indent: 3rem;">
+                                The Saint Theresa College Library serves the informational needs of the students, faculty, staff,
+                                and researchers of the college. It supports the curricular, research and extension service programs of
+                                the college through the provision of properly maintained facilities.
+                            </p>
+                            <br>
+                            <p class="fs-5" style="text-align: justify;">
+                                The College Library is committed: <br>
+                                <br>
+                                To provide adequate, up-to-date and relevant resources, facilities and services to
+                                the STC academic community as a means in achieving college goals and objectives;
+                            </p>
+                            <ul class="fs-5">
+                                <li>
+                                    To organize the collections of maximized and effective use;
+                                </li>
+                                <li>
+                                    To develop, enrich and maintain the library collection in terms of the college and
+                                    undergradiate curricular programs.
+                                </li>
+                            </ul>
+                        </div>
+    
+                        <div class="border border-danger mt-2 mx-5 px-5 pt-3">
+                            <strong><h2 class="text-center">Library Rules</h2></strong>
+                            <ul>
+                                <li>
+    
+                                </li>
+                                <li>
+                                    
+                                </li>
+                                <li>
+                                    
+                                </li>
+                                <li>
+                                    
+                                </li>
+                                <li>
+                                    
+                                </li>
+                            </ul>
+                        </div>
+
+                    </div>
+
 
                         
 
