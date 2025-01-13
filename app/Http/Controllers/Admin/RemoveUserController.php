@@ -18,16 +18,18 @@ class RemoveUserController extends Controller
             ->leftJoin('borrowedbooks as bb', 'b.libraryId', '=', 'bb.libraryId')
             ->select('b.name', 'b.libraryId', 'bb.form')
             ->where('b.libraryId', $libId)
-            ->where('b.accLevel', 'user')
             ->where('b.accStatus', 'Active')
+            ->where('b.accLevel', 'user')
+            ->orWhere('b.accLevel', 'Instructor')
             ->get();
 
         }else {
             $userList = DB::table('users as b')
             ->leftJoin('borrowedbooks as bb', 'b.libraryId', '=', 'bb.libraryId')
             ->select('b.name', 'b.libraryId', 'bb.form')
-            ->where('b.accLevel', 'user')
             ->where('b.accStatus', 'Active')
+            ->where('b.accLevel', 'user')
+            ->orWhere('b.accLevel', 'Instructor')
             ->limit(20)
             ->get();
         }

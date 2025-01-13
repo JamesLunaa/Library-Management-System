@@ -25,6 +25,7 @@ class LoginController extends Controller
             'password' => $request->input('password')
         ];
 
+
         // Try using libraryId, if not found, fall back to name
         if (!Auth::attempt($credentials)) {
             $credentials = [
@@ -43,6 +44,9 @@ class LoginController extends Controller
         // Store the user info in session
         session(['user' => $user->name, 'libId' => $user->libraryId]);
 
+        if ($user->accStatus === 'Inactive') {
+            return redirect()->back()->withErrors(['login' => 'Account inactive. Please contact the librarian']);
+        }
         // Log attendance if user is a regular user
         if ($user->accLevel === 'user') {
             $this->logAttendance($user);

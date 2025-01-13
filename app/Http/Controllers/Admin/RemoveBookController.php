@@ -26,6 +26,7 @@ class RemoveBookController extends Controller
             $removeList = DB::table('books')
             ->select('title', 'accNo', 'status')
             ->limit(20)
+            ->orderBy('id', 'DESC')
             ->get();
         }
         return view('admin.removeBook', ['remove' => $removeList]);
