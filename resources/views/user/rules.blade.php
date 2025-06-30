@@ -28,7 +28,7 @@
 
                 <div class="card-body mainDisplay">
                     
-                    <div class="rulesWrap border border-danger p-3">
+                    <div class="rulesWrap p-3">
 
                         <div id="vmc" class="d-flex flex-nowrap mt-5 gap-3">
                             <div class="border border-black rounded-4 p-2">
